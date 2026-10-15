@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amanet Styleguide</title>
+<meta name="description" content="Design-System von Amanet Digital: Farben, Typografie, Logo und Komponenten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/amanet.css">
+<style>
+  .sg-header{display:flex;align-items:center;justify-content:space-between;padding:28px 0;border-bottom:1px solid var(--line)}
+  .sg-header .muted{font-size:14px}
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+  .swatch{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--black-2)}
+  .swatch__color{height:96px}
+  .swatch__meta{padding:14px 16px;font-size:14px;line-height:1.4}
+  .swatch__meta strong{display:block;font-weight:500;color:var(--white)}
+  .swatch__meta span{color:var(--grey)}
+  .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center}
+  .logo-stage{position:relative;overflow:hidden;min-height:340px;display:grid;place-items:center}
+  .logo-stage .brand{position:relative;z-index:1;flex-direction:column;gap:22px}
+  .logo-stage .brand__word{font-size:26px;letter-spacing:8px}
+  .contact{font-size:15px;color:var(--grey-light);line-height:1.9}
+  footer{padding:48px 0;border-top:1px solid var(--line)}
+</style>
+</head>
+<body class="grain">
+
+<div class="container">
+  <header class="sg-header">
+    <a class="brand" href="#">
+      <svg viewBox="-75 -75 150 150" width="44" height="44" aria-hidden="true">
+        <rect x="-70" y="-70" width="140" height="140" rx="38" fill="none" stroke="#3E3E44" stroke-width="6"/>
+        <path d="M-29 32 L0 -35 L29 32" fill="none" stroke="#D4C49C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="0" cy="11" r="9.5" fill="#F1F0EA"/>
+      </svg>
+      <span class="brand__word">AMANET <span>DIGITAL</span></span>
+    </a>
+    <span class="muted">Styleguide</span>
+  </header>
+</div>
+
+<!-- Hero-Muster: Overline klein + Headline gross gold -->
+<section class="section center vignette glow-spot">
+  <div class="container">
+    <span class="overline overline--white fade-up">Mehr</span>
+    <h1 class="text-gold text-gold--sweep fade-up d1">Verkäufe.</h1>
+    <hr class="divider fade-up d2">
+    <p class="lead fade-up d2">Websites, Google Ads und Social Media für Ihr Business. Klare Fixpreise, alles aus einer Hand, ein persönlicher Ansprechpartner.</p>
+    <div class="row fade-up d3" style="margin-top:40px">
+      <a class="btn btn--primary" href="#kontakt">Offerte anfragen</a>
+      <a class="btn btn--secondary" href="#leistungen">Leistungen ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- Farben -->
+<section class="section">
+  <div class="container">
+    <span class="overline">01 · Farben</span>
+    <h2 style="margin-bottom:40px">Palette</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch__color" style="background:var(--black)"></div><div class="swatch__meta"><strong>Black</strong><span>#0B0B0C</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--black-2)"></div><div class="swatch__meta"><strong>Black 2</strong><span>#141416</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--offwhite)"></div><div class="swatch__meta"><strong>Offwhite</strong><span>#F1F0EA</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--white)"></div><div class="swatch__meta"><strong>White</strong><span>#F4F2EC</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--gold)"></div><div class="swatch__meta"><strong>Gold</strong><span>#D4C49C</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--gold-dark)"></div><div class="swatch__meta"><strong>Gold Dark</strong><span>#7A6A45</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--grey)"></div><div class="swatch__meta"><strong>Grey</strong><span>#8D8B85</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--grey-light)"></div><div class="swatch__meta"><strong>Grey Light</strong><span>#A9A69D</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--line)"></div><div class="swatch__meta"><strong>Line</strong><span>#3E3E44</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Typografie -->
+<section class="section">
+  <div class="container">
+    <span class="overline">02 · Typografie</span>
+    <h2 style="margin-bottom:40px">Poppins</h2>
+    <div class="grid grid--2">
+      <div class="card stack">
+        <span class="overline">Headline · 700</span>
+        <p class="h2 headline">Ihr Auftritt.</p>
+        <span class="overline">Overline · 500 · Spacing 10px</span>
+        <p class="lead" style="color:var(--offwhite)">Fliesstext · 400 · 17px · Zeilenhöhe 1.6. Kurz, klar und in der Sie-Form geschrieben.</p>
+      </div>
+      <div class="card stack">
+        <span class="overline">Gewichte</span>
+        <p style="font-weight:300;font-size:22px">Light 300</p>
+        <p style="font-weight:400;font-size:22px">Regular 400</p>
+        <p style="font-weight:500;font-size:22px">Medium 500</p>
+        <p style="font-weight:700;font-size:22px">Bold 700</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Logo -->
+<section class="section">
+  <div class="container">
+    <span class="overline">03 · Logo</span>
+    <h2 style="margin-bottom:40px">Markenzeichen</h2>
+    <div class="card logo-stage vignette">
+      <svg class="watermark" viewBox="-40 -45 80 90" aria-hidden="true">
+        <path d="M-29 32 L0 -35 L29 32" fill="none" stroke="#D4C49C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="0" cy="11" r="9.5" fill="#F1F0EA"/>
+      </svg>
+      <div class="brand">
+        <svg viewBox="-75 -75 150 150" width="112" height="112" aria-hidden="true">
+          <rect x="-70" y="-70" width="140" height="140" rx="38" fill="none" stroke="#3E3E44" stroke-width="6"/>
+          <path d="M-29 32 L0 -35 L29 32" fill="none" stroke="#D4C49C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="0" cy="11" r="9.5" fill="#F1F0EA"/>
+        </svg>
+        <span class="brand__word">AMANET <span>DIGITAL</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Komponenten -->
+<section class="section" id="leistungen">
+  <div class="container">
+    <span class="overline">04 · Komponenten</span>
+    <h2 style="margin-bottom:40px">Bausteine</h2>
+
+    <div class="row" style="justify-content:flex-start;margin-bottom:40px">
+      <a class="btn btn--primary" href="#">Primär</a>
+      <a class="btn btn--secondary" href="#">Sekundär</a>
+      <span class="badge">Fixpreis</span>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card stack">
+        <span class="overline">Websites</span>
+        <h3>Ihre Website</h3>
+        <p class="muted">Mobile-first, schnell und auf Ihr Business zugeschnitten.</p>
+        <p class="price">CHF XXX.– <small>Beispielpreis</small></p>
+      </article>
+      <article class="card card--light stack">
+        <span class="overline">Google Ads</span>
+        <h3>Mehr Anfragen</h3>
+        <p class="muted">Kampagnen, die gezielt Ihre Kundschaft in der Region erreichen.</p>
+        <p class="price">CHF XXX.– <small>Beispielpreis</small></p>
+      </article>
+      <article class="card stack">
+        <span class="overline">Social Media</span>
+        <h3>Sichtbar bleiben</h3>
+        <p class="muted">Inhalte und Betreuung Ihrer Kanäle – regelmässig und konsistent.</p>
+        <p class="price">CHF XXX.– <small>Beispielpreis</small></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section class="section center" id="kontakt">
+  <div class="container">
+    <span class="overline overline--white">Sprechen wir</span>
+    <h2 class="text-gold">Über Ihr Projekt.</h2>
+    <hr class="divider">
+    <p class="contact">
+      Amanet Digital · Da Cruz MM<br>
+      Bifangstrasse 18, 5610 Wohlen AG<br>
+      <a href="tel:+41765668448">+41 76 566 84 48</a> · <a href="https://wa.me/41765668448">WhatsApp</a><br>
+      <a href="mailto:info@amanetdigital.ch">info@amanetdigital.ch</a> · <a href="https://amanetdigital.ch">amanetdigital.ch</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container center muted" style="font-size:14px">
+    © Amanet Digital · Inhaber Diego Oliveira Marques Da Cruz
+  </div>
+</footer>
+
+</body>
+</html>
