@@ -1,0 +1,247 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:P;font-weight:300;src:url(fonts/p300.ttf)}
+@font-face{font-family:P;font-weight:400;src:url(fonts/p400.ttf)}
+@font-face{font-family:P;font-weight:500;src:url(fonts/p500.ttf)}
+@font-face{font-family:P;font-weight:700;src:url(fonts/p700.ttf)}
+html,body{margin:0;background:#0B0B0C}
+canvas{display:block}
+</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+const W=1080,H=1920,CX=540,CY=900;
+const C={black:'#0B0B0C',black2:'#141416',off:'#F1F0EA',white:'#F4F2EC',gold:'#D4C49C',goldD:'#7A6A45',grey:'#8D8B85',greyL:'#A9A69D',line:'#3E3E44'};
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+const DURATION=24;
+
+/* ---------- helpers ---------- */
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const eOut=t=>1-Math.pow(1-clamp(t),4);
+const eIn=t=>Math.pow(clamp(t),3);
+const eIO=t=>{t=clamp(t);return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+/* envelope for an element: enters at a, leaves at b */
+function env(t,a,b,inD=.75,outD=.45){
+  if(t<a||t>b+outD) return null;
+  const i=eOut((t-a)/inD), o=eIn((t-b)/outD);
+  return {a:i*(1-o), y:(1-i)*46 - o*26, blur:(1-i)*16 + o*12, s:lerp(1.05,1,i)};
+}
+
+function font(w,size){return `${w} ${size}px P`}
+
+/* fit text inside maxW by reducing size */
+function fit(txt,w,size,ls,maxW=920){
+  x.font=font(w,size); x.letterSpacing=ls+'px';
+  const m=x.measureText(txt).width-ls;
+  return m>maxW? size*maxW/m : size;
+}
+
+const goldGrad=(y,size)=>{const g=x.createLinearGradient(0,y-size*.78,0,y+size*.12);
+  g.addColorStop(0,'#F3E3B5');g.addColorStop(.55,'#D4C49C');g.addColorStop(1,'#A8925E');return g};
+
+/* offscreen for gold sweep */
+const off=document.createElement('canvas');off.width=W;off.height=480;const ox=off.getContext('2d');
+
+/* draw a text line.  o:{txt,w,size,ls,color|'gold',y,e(env),sweep(0..1|null),glow,align,xPos,maxW} */
+function text(o){
+  const e=o.e; if(!e||e.a<=0.001) return;
+  let size=fit(o.txt,o.w,o.size,o.ls||0,o.maxW||920);
+  x.save();
+  x.globalAlpha=e.a*(o.alpha??1);
+  if(e.blur>.3) x.filter=`blur(${e.blur.toFixed(1)}px)`;
+  const px=o.xPos??CX, py=o.y+e.y;
+  x.translate(px,py); x.scale(e.s,e.s); x.translate(-px,-py);
+  x.font=font(o.w,size); x.letterSpacing=(o.ls||0)+'px';
+  x.textAlign=o.align||'center'; x.textBaseline='alphabetic';
+  // letterSpacing adds trailing space; compensate for centered text
+  const dx=(o.align||'center')==='center'?(o.ls||0)/2:0;
+  if(o.color==='gold'){
+    x.shadowColor='rgba(212,196,156,.38)'; x.shadowBlur=o.glow??38;
+    x.fillStyle=goldGrad(py,size);
+    x.fillText(o.txt,px+dx,py);
+    x.shadowBlur=0;
+    if(o.sweep!=null && o.sweep>0 && o.sweep<1){
+      // highlight band only on glyphs
+      ox.clearRect(0,0,W,480); ox.save();
+      ox.font=x.font; ox.letterSpacing=x.letterSpacing; ox.textAlign=x.textAlign;
+      ox.fillStyle='#fff'; ox.fillText(o.txt,px+dx,300);
+      ox.globalCompositeOperation='source-in';
+      const bx=lerp(-300,W+300,eIO(o.sweep));
+      const g=ox.createLinearGradient(bx-160,0,bx+160,0);
+      g.addColorStop(0,'rgba(255,249,232,0)');g.addColorStop(.5,'rgba(255,249,232,.85)');g.addColorStop(1,'rgba(255,249,232,0)');
+      ox.fillStyle=g; ox.fillRect(0,0,W,480); ox.restore();
+      x.drawImage(off,0,py-300);
+    }
+  }else{
+    x.fillStyle=o.color; x.fillText(o.txt,px+dx,py);
+  }
+  x.restore();
+}
+
+/* ---------- logo A ---------- */
+const A_LEN=2*Math.hypot(29,67);
+function drawA(cx,cy,scale,alpha,draw=1,dot=1,glow=0,stroke=C.gold,dotCol=C.off){
+  x.save(); x.globalAlpha=alpha; x.translate(cx,cy); x.scale(scale,scale);
+  x.lineCap='round'; x.lineJoin='round'; x.lineWidth=11; x.strokeStyle=stroke;
+  if(glow>0){x.shadowColor=`rgba(212,196,156,${.55*glow})`; x.shadowBlur=60*glow/scale*2;}
+  x.setLineDash([A_LEN*draw, A_LEN]); x.beginPath(); x.moveTo(-29,32); x.lineTo(0,-35); x.lineTo(29,32); x.stroke();
+  x.setLineDash([]);
+  if(dot>0){x.globalAlpha=alpha*clamp(dot); x.fillStyle=dotCol; x.beginPath(); x.arc(0,11,9.5*lerp(.4,1,eOut(dot)),0,7); x.fill();}
+  x.restore();
+}
+function pointOnA(p){ // p 0..1 along the path
+  const h=.5; if(p<h){const k=p/h;return[lerp(-29,0,k),lerp(32,-35,k)]} const k=(p-h)/h;return[lerp(0,29,k),lerp(-35,32,k)];
+}
+
+/* ---------- background ---------- */
+const R=rng(7);
+const parts=[...Array(110)].map(()=>({x:R()*W,y:R()*H,r:R()<.12?lerp(5,11,R()):lerp(.8,2.6,R()),v:lerp(8,28,R()),ph:R()*6.28,dr:lerp(-6,6,R()),f:lerp(.5,1.6,R())}));
+const grains=[...Array(6)].map((_,i)=>{const g=document.createElement('canvas');g.width=540;g.height=960;const gx=g.getContext('2d');const id=gx.createImageData(540,960);const r=rng(100+i);for(let k=0;k<id.data.length;k+=4){const v=r()*255;id.data[k]=id.data[k+1]=id.data[k+2]=v;id.data[k+3]=255}gx.putImageData(id,0,0);return g});
+
+function background(t,intensity){
+  x.fillStyle=C.black; x.fillRect(0,0,W,H);
+  // soft warm light behind content
+  const g=x.createRadialGradient(CX,CY,0,CX,CY,760);
+  g.addColorStop(0,`rgba(212,196,156,${.075*intensity})`); g.addColorStop(1,'rgba(212,196,156,0)');
+  x.fillStyle=g; x.fillRect(0,0,W,H);
+}
+function dust(t,boost){
+  x.save();
+  for(const p of parts){
+    const y=((p.y - p.v*t)%H+H)%H, xx=p.x+Math.sin(t*.4*p.f+p.ph)*18+p.dr*t;
+    const tw=.55+.45*Math.sin(t*1.7*p.f+p.ph);
+    const big=p.r>4;
+    const a=(big?.07:.32)*tw*boost*(1-Math.abs(y-CY)/H*.6);
+    x.globalAlpha=a; x.fillStyle=big?C.gold:'#E9D9AE';
+    if(big) x.filter='blur(4px)'; else x.filter='none';
+    x.beginPath(); x.arc(((xx%W)+W)%W,y,p.r,0,7); x.fill();
+  }
+  x.restore();
+}
+function finish(t){
+  // vignette
+  const v=x.createRadialGradient(CX,H/2,H*.22,CX,H/2,H*.72);
+  v.addColorStop(0,'rgba(0,0,0,0)'); v.addColorStop(1,'rgba(0,0,0,.72)');
+  x.fillStyle=v; x.fillRect(0,0,W,H);
+  // film grain
+  x.save(); x.globalAlpha=.045; x.globalCompositeOperation='overlay';
+  x.drawImage(grains[Math.floor(t*30)%grains.length],0,0,W,H); x.restore();
+}
+
+/* ---------- timeline ---------- */
+const T={intro:0, s2:3.3, s3:6.3, s4:9.0, s5:11.9, s6:16.0, s7:18.2, end:20.3};
+
+function render(t){
+  x.filter='none'; x.globalAlpha=1;
+  const endK=eOut((t-T.end)/1);
+  background(t,1-endK*.5);
+
+  /* --- watermark A: intro logo grows into the background mark --- */
+  const draw=eIO((t-.35)/1.25), dotIn=clamp((t-1.55)/.35);
+  const mr=clamp((t-2.75)/.95), morph=eIO(mr);
+  const wmScale=lerp(3.1,9.2,morph)*(1+t*.003), wmY=lerp(CY-40,CY+560,morph);
+  const wmAlpha=lerp(1,.075,eOut(mr*1.15))*(1-endK*.7);
+  const glowA=clamp((t-1.5)/.3)*(1-clamp((t-2.6)/.6));
+  dust(t, t<3?lerp(.5,1.6,clamp(t/1.6)) : 1);
+  if(t<T.end+1.2) drawA(CX,wmY,wmScale,wmAlpha,draw,dotIn,glowA*(1-morph),C.gold,morph>0.5?'#3a3833':C.off);
+
+  // spark travelling along the A while it draws
+  if(t>.3 && t<1.75){
+    const [px,py]=pointOnA(clamp(draw)); const sx=CX+px*3.1, sy=CY-40+py*3.1;
+    const s=x.createRadialGradient(sx,sy,0,sx,sy,70);
+    s.addColorStop(0,'rgba(255,246,222,.95)'); s.addColorStop(.25,'rgba(212,196,156,.45)'); s.addColorStop(1,'rgba(212,196,156,0)');
+    x.fillStyle=s; x.fillRect(sx-80,sy-80,160,160);
+  }
+  // soft bloom when the dot lands
+  if(t>1.5&&t<3.2){
+    const k=clamp((t-1.55)/.25)*(1-clamp((t-1.9)/1.2));
+    const b=x.createRadialGradient(CX,CY-6,0,CX,CY-6,520);
+    b.addColorStop(0,`rgba(212,196,156,${.28*k})`); b.addColorStop(1,'rgba(212,196,156,0)');
+    x.fillStyle=b; x.fillRect(0,0,W,H);
+  }
+
+  /* --- S1: wordmark --- */
+  { const e=env(t,1.95,2.85,.8,.45);
+    if(e){ // AMANET white + DIGITAL gold as one line
+      x.save(); x.globalAlpha=e.a; if(e.blur>.3)x.filter=`blur(${e.blur}px)`;
+      x.font=font(700,62); x.letterSpacing='14px'; x.textBaseline='alphabetic';
+      const a='AMANET ', d='DIGITAL', wa=x.measureText(a).width, wd=x.measureText(d).width-14;
+      const sx=CX-(wa+wd)/2, y=CY+250+e.y;
+      x.textAlign='left'; x.fillStyle=C.white; x.fillText(a,sx,y);
+      x.fillStyle=C.gold; x.fillText(d,sx+wa,y); x.restore(); }
+    text({txt:'APRESENTA',w:500,size:34,ls:16,color:C.grey,y:CY+330,e:env(t,2.2,2.85,.8,.45)});
+  }
+
+  /* --- S2 --- */
+  text({txt:'PELA PRIMEIRA VEZ',w:500,size:38,ls:14,color:C.greyL,y:CY-150,e:env(t,T.s2,T.s3-.5)});
+  text({txt:'NA FEIRA DE STARTUPS',w:700,size:84,ls:1,color:C.white,y:CY-20,e:env(t,T.s2+.25,T.s3-.5)});
+  text({txt:'ZOFINGEN.',w:700,size:170,ls:-2,color:'gold',y:CY+170,e:env(t,T.s2+.5,T.s3-.5,.9),sweep:(t-(T.s2+1.2))/1.4});
+
+  /* --- S3 --- */
+  text({txt:'O SEU NEGÓCIO',w:500,size:40,ls:14,color:C.white,y:CY-150,e:env(t,T.s3,T.s4-.5)});
+  text({txt:'DEVE SER',w:700,size:120,ls:-1,color:C.white,y:CY+5,e:env(t,T.s3+.25,T.s4-.5)});
+  text({txt:'VISTO.',w:700,size:200,ls:-2,color:'gold',y:CY+200,e:env(t,T.s3+.55,T.s4-.5,.9)});
+
+  /* --- S4: MAIS + cycling word --- */
+  text({txt:'MAIS',w:500,size:46,ls:18,color:C.white,y:CY-90,e:env(t,T.s4,T.s5-.5)});
+  ['VENDAS.','ALCANCE.','SUCESSO.'].forEach((w,i)=>{
+    const a=T.s4+.2+i*.9, last=i===2;
+    text({txt:w,w:700,size:170,ls:-2,color:'gold',y:CY+90,e:env(t,a,last?T.s5-.5:a+.62,.55,.3),
+      sweep:last?(t-(a+.35))/1.3:null});
+  });
+
+  /* --- S5: services list --- */
+  text({txt:'TUDO NUM SÓ LUGAR',w:500,size:36,ls:14,color:C.greyL,y:CY-400,e:env(t,T.s5,T.s6-.55)});
+  const svc=['WEBSITES','GOOGLE ADS','REDES SOCIAIS','MARKETING','MATERIAL PUBLICITÁRIO'];
+  svc.forEach((s,i)=>{
+    const a=T.s5+.35+i*.42, y=CY-250+i*150;
+    const e=env(t,a,T.s6-.55-((4-i)*.04),.7,.4);
+    if(!e) return;
+    const lx=150;
+    text({txt:String(i+1).padStart(2,'0'),w:500,size:34,ls:4,color:C.gold,y:y,e,align:'left',xPos:lx});
+    text({txt:s,w:700,size:58,ls:1,color:C.white,y:y,e,align:'left',xPos:lx+100,maxW:690});
+    // rule
+    x.save(); x.globalAlpha=e.a*.9; x.fillStyle=C.line;
+    const wl=780*eOut((t-a-.1)/.8); x.fillRect(lx,y+50+e.y,wl,2); x.restore();
+  });
+
+  /* --- S6 --- */
+  text({txt:'PROMOÇÃO',w:700,size:120,ls:-1,color:C.white,y:CY-40,e:env(t,T.s6,T.s7-.5)});
+  text({txt:'ÚNICA.',w:700,size:200,ls:-2,color:'gold',y:CY+160,e:env(t,T.s6+.3,T.s7-.5,.9)});
+  text({txt:'Visite-nos no nosso stand.',w:400,size:44,ls:0,color:C.greyL,y:CY+290,e:env(t,T.s6+.75,T.s7-.5)});
+
+  /* --- S7 --- */
+  text({txt:'NÓS ESPERAMOS',w:700,size:92,ls:0,color:C.white,y:CY-40,e:env(t,T.s7,T.end-.5)});
+  text({txt:'POR SI.',w:700,size:210,ls:-2,color:'gold',y:CY+170,e:env(t,T.s7+.3,T.end-.5,.9),sweep:(t-(T.s7+.8))/1.4});
+
+  /* --- END CARD --- */
+  const E=T.end, hold=DURATION;
+  { const e=env(t,E,hold,.9);
+    if(e){ // framed logo
+      x.save(); x.globalAlpha=e.a; if(e.blur>.3)x.filter=`blur(${e.blur}px)`;
+      const s=1.25*e.s, cy=CY-420+e.y;
+      x.translate(CX,cy); x.scale(s,s);
+      x.lineWidth=6; x.strokeStyle=C.line; x.beginPath(); x.roundRect(-70,-70,140,140,38); x.stroke();
+      x.restore();
+      drawA(CX,CY-420+e.y,1.25*e.s,e.a,1,1,.25);
+    }
+  }
+  text({txt:'AMANET ESTÁ PRESENTE',w:500,size:32,ls:12,color:C.grey,y:CY-235,e:env(t,E+.2,hold)});
+  text({txt:'SHOWROOM',w:700,size:140,ls:1,color:C.white,y:CY-40,e:env(t,E+.4,hold)});
+  text({txt:'EMPREENDEDORAS',w:500,size:52,ls:14,color:'gold',glow:24,y:CY+50,e:env(t,E+.6,hold)});
+  { const e=env(t,E+.85,hold); if(e){x.save();x.globalAlpha=e.a;x.fillStyle=C.gold;const w=110*eOut((t-E-.85)/.8);x.fillRect(CX-w/2,CY+130,w,3);x.restore();} }
+  text({txt:'DOMINGO · 25.10',w:700,size:72,ls:3,color:C.white,y:CY+260,e:env(t,E+1.0,hold)});
+  text({txt:'Zofingen · Mehrzweckhalle · 10h – 18h',w:400,size:42,ls:0,color:C.greyL,y:CY+340,e:env(t,E+1.15,hold)});
+  text({txt:'AMANETDIGITAL.CH',w:500,size:34,ls:10,color:C.grey,y:CY+590,e:env(t,E+1.45,hold)});
+
+  finish(t);
+  // global fade in/out
+  const fo=clamp(t/0.25)*(1-clamp((t-(DURATION-.6))/.6));
+  if(fo<1){x.globalAlpha=1-fo;x.fillStyle='#000';x.fillRect(0,0,W,H);x.globalAlpha=1;}
+}
+window.render=render; window.DURATION=DURATION;
+window.ready=Promise.all([300,400,500,700].map(w=>document.fonts.load(`${w} 40px P`))).then(()=>document.fonts.ready);
+</script></body></html>
