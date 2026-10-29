@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import logo from '../assets/logo/logo-alma-douro.png';
 import { NAV, UI, localePath, type Lang, type PageKey } from '../i18n';
-import { EMAIL, whatsappUrl } from '../config';
+import { EMAIL, PHONE, SOCIAL, whatsappUrl } from '../config';
 import LangSwitch from './LangSwitch.astro';
 
 interface Props { lang: Lang; pageKey: PageKey }
@@ -28,7 +28,9 @@ const year = new Date().getFullYear();
         <h2>{NAV.find((n) => n.key === 'contacto')!.label[lang]}</h2>
         <ul>
           <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+          <li><a href={PHONE.href}>{PHONE.display}</a></li>
           {wa && <li><a href={wa} rel="noopener" target="_blank">WhatsApp</a></li>}
+          {SOCIAL.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.name} {s.handle}</a></li>)}
         </ul>
         <div style="margin-top:1.5rem"><LangSwitch lang={lang} pageKey={pageKey} /></div>
       </div>

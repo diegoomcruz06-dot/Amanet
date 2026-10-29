@@ -1,188 +1,68 @@
-// «Parceiros». TEXT-ENTWURF (Amanet Digital), modernisiert aus den Texten der alten Website. Freigabe: siehe DRAFTS_REVIEW.md.
+// «Parcerias». PT = definitiver Text der Kundin (05-parcerias.md). FR/EN = Übersetzungen.
 export const parceiros = {
   pt: {
-    title: 'Parceiros no Douro | Alma Douro',
+    title: 'Parcerias | Alma Douro',
     description:
-      'Quinta do Tedo e Quinta da Casa Cimeira: os parceiros locais da Alma Douro. Tem um projeto no Douro? Saiba como se tornar parceiro.',
-    eyebrow: 'Parceiros',
-    h1: 'Parceiros que recebem <em>de coração</em>',
-    intro:
-      'Trabalho com parceiros locais que partilham a mesma forma de receber: com autenticidade, proximidade e cuidado. Eis alguns dos lugares que tenho o gosto de lhe dar a conhecer.',
-    visit: 'Visitar o site',
-    newTab: '(abre numa nova janela)',
-    experiencesLabel: 'Experiências',
-    partners: [
-      {
-        id: 'tedo',
-        name: 'Quinta do Tedo',
-        text: [
-          'No coração do Douro, na confluência dos rios Douro e Tedo, esta quinta reúne autenticidade, paisagem e a arte de viver portuguesa, entre vinhas em socalcos e com vista sobre o vale.',
-          'O Bistro Terrace, recomendado pelo Guia Michelin, completa a experiência, num ambiente ideal para passear, descansar e descobrir a natureza.',
-        ],
-        list: ['Visitas guiadas', 'Piqueniques nas vinhas', 'Experiências durante as vindimas', 'Provas de vinhos do Porto, vinhos Douro DOC e azeite'],
-        note: 'Reserva e organização através da Alma Douro.',
-      },
-      {
-        id: 'cimeira',
-        name: 'Quinta da Casa Cimeira',
-        text: [
-          'A Casa Cimeira propõe estadias em quartos numa casa tradicional, com uma verdadeira imersão na cultura local. As refeições caseiras típicas são, muitas vezes, um dos momentos mais marcantes da estadia.',
-          'Aqui, a experiência é antes de mais humana. Os anfitriões partilham o seu dia a dia, a sua cozinha e a sua paixão pela região, num ambiente simples, sincero e caloroso.',
-          'A quinta produz também o seu próprio vinho e azeite, que pode descobrir no local.',
-        ],
-        list: [],
-        note: '',
-      },
+      'Tem um alojamento, uma quinta, um restaurante ou uma experiência no Douro? A Alma Douro valoriza projetos locais e relações de confiança.',
+    eyebrow: 'Parcerias',
+    h1: 'Boas experiências começam com <em>boas relações.</em>',
+    intro: 'Por detrás de uma estadia acolhedora, de uma visita que nos marca ou de uma refeição que recordamos, há pessoas que cuidam do que fazem. Na Alma Douro, dou valor a essas pessoas e às relações que vamos construindo.',
+    blocks: [
+      { title: 'Uma ligação de confiança', text: 'Procuro trabalhar com projetos que respeitam a identidade da região e recebem cada viajante com atenção. A autenticidade, a qualidade do acolhimento e uma comunicação clara são essenciais para preparar as experiências que recomendo. Cada lugar tem a sua história e a sua forma de receber. O meu papel é compreender essa identidade e aproximá-la dos viajantes que a vão apreciar.' },
+      { title: 'Dar a conhecer quem faz parte do Douro', text: 'Quero contribuir para que os projetos locais cheguem a novos públicos, especialmente na Suíça e noutros países europeus. Através de recomendações personalizadas e da preparação das viagens, ajudo cada cliente a descobrir alojamentos, produtores e experiências que combinam com os seus interesses. Valorizo também os pequenos projetos e os lugares menos conhecidos, onde há histórias que merecem ser partilhadas.' },
     ],
     join: {
-      title: 'Tornar-se <em>parceiro</em>',
-      lead: 'Tem um projeto no Douro? Dê-lhe mais visibilidade junto de viajantes da Suíça e da Europa.',
-      why: {
-        title: 'Porquê',
-        text: 'A Alma Douro liga quintas familiares, alojamentos autênticos, restaurantes locais e projetos do Douro a um público suíço e europeu que procura tranquilidade, natureza, qualidade, descoberta e hospitalidade. Uma rede que valoriza a simplicidade, a autenticidade e o desenvolvimento local.',
-      },
-      forWhom: {
-        title: 'Para quem',
-        items: ['Quintas e alojamentos familiares', 'Turismo rural', 'Restaurantes', 'Produtores de vinho', 'Passeios locais, experiências e atividades'],
-      },
-      goals: {
-        title: 'O que pode esperar',
-        items: ['Visibilidade junto de um público internacional e respeitoso', 'Apoio ao desenvolvimento turístico e à presença digital', 'Uma colaboração honesta e transparente'],
-      },
-      steps: {
-        title: 'Como funciona',
-        items: [
-          { title: 'Primeiro contacto', text: 'Escreva-me e apresente-me o seu projeto.' },
-          { title: 'Encontro', text: 'Conhecemo-nos online ou no local.' },
-          { title: 'Proposta personalizada', text: 'Definimos juntos a forma de colaboração.' },
-          { title: 'Destaque', text: 'O seu projeto é apresentado no site da Alma Douro, nas redes sociais e nas recomendações personalizadas aos viajantes.' },
-        ],
-      },
-      button: 'Falar sobre uma parceria',
+      title: 'Tem um projeto que gostaria <em>de partilhar?</em>',
+      text: [
+        'Se tem um alojamento, uma quinta, um restaurante, uma experiência ou um serviço que possa enriquecer a viagem dos meus clientes, terei todo o gosto em conhecer o seu trabalho.',
+        'Estou também disponível para conhecer projetos na Suíça que se identifiquem com esta ponte entre os dois países. Vamos conversar sobre o que nos aproxima e perceber como podemos colaborar, com condições claras e respeito pelo trabalho de cada um.',
+      ],
+      button: 'Propor uma parceria',
+      mailSubject: 'Proposta de parceria',
     },
   },
 
   fr: {
-    title: 'Partenaires dans le Douro | Alma Douro',
+    title: 'Partenariats | Alma Douro',
     description:
-      'Quinta do Tedo et Quinta da Casa Cimeira : les partenaires locaux d’Alma Douro. Vous avez un projet dans le Douro ? Devenez partenaire.',
-    eyebrow: 'Partenaires',
-    h1: 'Des partenaires qui accueillent <em>avec le cœur</em>',
-    intro:
-      'Je travaille avec des partenaires locaux qui partagent la même façon d’accueillir : avec authenticité, proximité et soin. Voici quelques-uns des lieux que j’ai le plaisir de vous faire découvrir.',
-    visit: 'Visiter le site',
-    newTab: '(s’ouvre dans une nouvelle fenêtre)',
-    experiencesLabel: 'Expériences',
-    partners: [
-      {
-        id: 'tedo',
-        name: 'Quinta do Tedo',
-        text: [
-          'Au cœur du Douro, au confluent du Douro et du Tedo, ce domaine réunit authenticité, paysage et art de vivre portugais, au milieu des vignes en terrasses et avec une vue remarquable sur la vallée.',
-          'Le Bistro Terrace, recommandé par le Guide Michelin, complète l’expérience, dans un cadre idéal pour se promener, se détendre et découvrir la nature.',
-        ],
-        list: ['Visites guidées', 'Pique-niques dans les vignes', 'Expériences pendant les vendanges', 'Dégustations de Portos, de vins Douro DOC et d’huile d’olive'],
-        note: 'Réservation et organisation via Alma Douro.',
-      },
-      {
-        id: 'cimeira',
-        name: 'Quinta da Casa Cimeira',
-        text: [
-          'Casa Cimeira propose des séjours en chambres dans une maison traditionnelle, pour une véritable immersion dans la culture locale. Les repas typiques faits maison sont souvent l’un des moments forts du séjour.',
-          'Ici, l’expérience est avant tout humaine. Les hôtes partagent leur quotidien, leur cuisine et leur passion pour la région, dans une ambiance simple, sincère et chaleureuse.',
-          'Le domaine produit également son propre vin et son huile d’olive, que vous pouvez découvrir sur place.',
-        ],
-        list: [],
-        note: '',
-      },
+      'Vous avez un hébergement, une quinta, un restaurant ou une expérience dans le Douro ? Alma Douro valorise les projets locaux et les relations de confiance.',
+    eyebrow: 'Partenariats',
+    h1: 'Les belles expériences commencent par <em>de belles relations.</em>',
+    intro: 'Derrière un séjour chaleureux, une visite qui nous marque ou un repas dont on se souvient, il y a des personnes qui prennent soin de ce qu’elles font. Chez Alma Douro, j’accorde de la valeur à ces personnes et aux relations que nous construisons.',
+    blocks: [
+      { title: 'Un lien de confiance', text: 'Je cherche à travailler avec des projets qui respectent l’identité de la région et accueillent chaque voyageur avec attention. L’authenticité, la qualité de l’accueil et une communication claire sont essentielles pour préparer les expériences que je recommande. Chaque lieu a son histoire et sa façon d’accueillir. Mon rôle est de comprendre cette identité et de la faire découvrir aux voyageurs qui sauront l’apprécier.' },
+      { title: 'Faire connaître celles et ceux qui font le Douro', text: 'Je souhaite aider les projets locaux à toucher de nouveaux publics, en particulier en Suisse et dans d’autres pays européens. Grâce à des recommandations personnalisées et à la préparation des voyages, j’aide chaque client à découvrir des hébergements, des producteurs et des expériences qui correspondent à ses centres d’intérêt. Je mets aussi en valeur les petits projets et les lieux moins connus, où se trouvent des histoires qui méritent d’être partagées.' },
     ],
     join: {
-      title: 'Devenir <em>partenaire</em>',
-      lead: 'Vous avez un projet dans le Douro ? Donnez-lui plus de visibilité auprès de voyageurs de Suisse et d’Europe.',
-      why: {
-        title: 'Pourquoi',
-        text: 'Alma Douro met en relation des domaines familiaux, des hébergements authentiques, des restaurants locaux et des projets du Douro avec un public suisse et européen en quête de calme, de nature, de qualité, de découverte et d’hospitalité. Un réseau qui valorise la simplicité, l’authenticité et le développement local.',
-      },
-      forWhom: {
-        title: 'Pour qui',
-        items: ['Domaines et hébergements familiaux', 'Tourisme rural', 'Restaurants', 'Producteurs de vin', 'Balades locales, expériences et activités'],
-      },
-      goals: {
-        title: 'Ce que vous pouvez attendre',
-        items: ['De la visibilité auprès d’un public international et respectueux', 'Un soutien au développement touristique et à la présence digitale', 'Une collaboration honnête et transparente'],
-      },
-      steps: {
-        title: 'Comment ça marche',
-        items: [
-          { title: 'Prise de contact', text: 'Écrivez-moi pour me présenter votre projet.' },
-          { title: 'Rencontre', text: 'Nous faisons connaissance en ligne ou sur place.' },
-          { title: 'Proposition personnalisée', text: 'Nous définissons ensemble la forme de la collaboration.' },
-          { title: 'Mise en avant', text: 'Votre projet est présenté sur le site d’Alma Douro, sur les réseaux sociaux et dans les recommandations personnalisées aux voyageurs.' },
-        ],
-      },
-      button: 'Parler d’un partenariat',
+      title: 'Vous avez un projet que vous aimeriez <em>partager ?</em>',
+      text: [
+        'Si vous avez un hébergement, une quinta, un restaurant, une expérience ou un service qui pourrait enrichir le voyage de mes clients, je serai ravie de découvrir votre travail.',
+        'Je suis également ouverte à des projets en Suisse qui se reconnaissent dans ce pont entre les deux pays. Parlons de ce qui nous rapproche et voyons comment collaborer, avec des conditions claires et dans le respect du travail de chacun.',
+      ],
+      button: 'Proposer un partenariat',
+      mailSubject: 'Proposition de partenariat',
     },
   },
 
   en: {
-    title: 'Partners in the Douro | Alma Douro',
+    title: 'Partnerships | Alma Douro',
     description:
-      'Quinta do Tedo and Quinta da Casa Cimeira: Alma Douro’s local partners. Do you have a project in the Douro? Find out how to become a partner.',
-    eyebrow: 'Partners',
-    h1: 'Partners who welcome you <em>from the heart</em>',
-    intro:
-      'I work with local partners who share the same way of welcoming guests: with authenticity, warmth and care. Here are some of the places I am delighted to introduce you to.',
-    visit: 'Visit the website',
-    newTab: '(opens in a new window)',
-    experiencesLabel: 'Experiences',
-    partners: [
-      {
-        id: 'tedo',
-        name: 'Quinta do Tedo',
-        text: [
-          'At the heart of the Douro, where the Douro and Tedo rivers meet, this estate brings together authenticity, landscape and the Portuguese art of living, among terraced vineyards and with a wide view over the valley.',
-          'The Bistro Terrace, recommended by the Michelin Guide, rounds off the experience, in a setting ideal for walking, relaxing and discovering nature.',
-        ],
-        list: ['Guided tours', 'Picnics in the vineyards', 'Harvest experiences', 'Tastings of port, Douro DOC wines and olive oil'],
-        note: 'Booking and organisation through Alma Douro.',
-      },
-      {
-        id: 'cimeira',
-        name: 'Quinta da Casa Cimeira',
-        text: [
-          'Casa Cimeira offers stays in rooms in a traditional house, with a genuine immersion in local culture. The typical home-cooked meals are often one of the highlights of the stay.',
-          'Here, the experience is above all a human one. The hosts share their daily life, their cooking and their passion for the region, in a simple, sincere and warm atmosphere.',
-          'The estate also produces its own wine and olive oil, which you can discover on site.',
-        ],
-        list: [],
-        note: '',
-      },
+      'Do you run accommodation, a quinta, a restaurant or an experience in the Douro? Alma Douro values local projects and relationships built on trust.',
+    eyebrow: 'Partnerships',
+    h1: 'Good experiences begin with <em>good relationships.</em>',
+    intro: 'Behind a welcoming stay, a visit that stays with us or a meal we remember, there are people who care about what they do. At Alma Douro, I value these people and the relationships we build together.',
+    blocks: [
+      { title: 'A relationship built on trust', text: 'I look to work with projects that respect the identity of the region and welcome every traveller with care. Authenticity, quality of hospitality and clear communication are essential for preparing the experiences I recommend. Every place has its own story and its own way of welcoming guests. My role is to understand that identity and bring it closer to the travellers who will appreciate it.' },
+      { title: 'Introducing the people who make the Douro', text: 'I want to help local projects reach new audiences, especially in Switzerland and other European countries. Through personal recommendations and trip planning, I help each client discover accommodation, producers and experiences that match their interests. I also value small projects and lesser-known places, where there are stories worth sharing.' },
     ],
     join: {
-      title: 'Become a <em>partner</em>',
-      lead: 'Do you have a project in the Douro? Give it more visibility among travellers from Switzerland and across Europe.',
-      why: {
-        title: 'Why',
-        text: 'Alma Douro connects family estates, authentic accommodation, local restaurants and Douro projects with Swiss and European travellers looking for peace, nature, quality, discovery and hospitality. A network that values simplicity, authenticity and local development.',
-      },
-      forWhom: {
-        title: 'Who it is for',
-        items: ['Family-run estates and accommodation', 'Rural tourism', 'Restaurants', 'Wine producers', 'Local walks, experiences and activities'],
-      },
-      goals: {
-        title: 'What you can expect',
-        items: ['Visibility with an international, respectful audience', 'Support for tourism development and your digital presence', 'An honest and transparent collaboration'],
-      },
-      steps: {
-        title: 'How it works',
-        items: [
-          { title: 'First contact', text: 'Write to me and tell me about your project.' },
-          { title: 'Meeting', text: 'We get to know each other online or in person.' },
-          { title: 'Tailored proposal', text: 'Together, we define how we will work together.' },
-          { title: 'Showcase', text: 'Your project is presented on the Alma Douro website, on social media and in personal recommendations to travellers.' },
-        ],
-      },
-      button: 'Talk about a partnership',
+      title: 'Do you have a project you would like <em>to share?</em>',
+      text: [
+        'If you have accommodation, a quinta, a restaurant, an experience or a service that could enrich my clients’ trips, I would be delighted to learn about your work.',
+        'I am also open to meeting projects in Switzerland that identify with this bridge between the two countries. Let’s talk about what brings us together and see how we can work together, with clear terms and respect for each other’s work.',
+      ],
+      button: 'Propose a partnership',
+      mailSubject: 'Partnership proposal',
     },
   },
 };

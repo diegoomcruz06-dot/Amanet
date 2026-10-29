@@ -5,6 +5,7 @@ import { home } from '../src/i18n/content/home.ts';
 import { sobre } from '../src/i18n/content/sobre.ts';
 import { servicos } from '../src/i18n/content/servicos.ts';
 import { experiencias } from '../src/i18n/content/experiencias.ts';
+import { quintas } from '../src/i18n/content/quintas.ts';
 import { descobrir } from '../src/i18n/content/descobrir.ts';
 import { parceiros } from '../src/i18n/content/parceiros.ts';
 import { contacto, obrigado, notFound } from '../src/i18n/content/contacto.ts';
@@ -34,25 +35,26 @@ const head = (title, intro) => `# ${title}\n\nAlma Douro · alma-douro.com · St
 const translations =
   head(
     'Übersetzungen zur Prüfung (FR / EN)',
-    'Die PT-Texte sind von Tania freigegeben und unverändert übernommen. FR (Hauptsprache) und EN sind sinngemäss übersetzt, nicht wörtlich. Bitte jede Zeile prüfen und Änderungen direkt hier markieren.\n\nHinweis: «dossier de viagem» ist auf Französisch als «carnet de voyage» übersetzt (üblicher Begriff), auf Englisch als «travel dossier».'
+    'Die PT-Texte sind von Tania freigegeben und unverändert übernommen. FR (Hauptsprache) und EN sind sinngemäss übersetzt, nicht wörtlich. Bitte jede Zeile prüfen und Änderungen direkt hier markieren.\n\nHinweis: «dossier de viagem» ist auf Französisch als «carnet de voyage» übersetzt (üblicher Begriff), auf Englisch als «travel dossier».\n\nZeilen `title` und `description` (Seitentitel und Google-Beschreibung) sowie `eyebrow` (kleine Überzeile) hat Amanet ergänzt; sie stehen nicht in Tanias Texten.'
   ) +
   section('Startseite (`/`, `/pt/`, `/en/`)', home, 'Von Amanet ergänzt (nicht im freigegebenen Text): Seitentitel, Meta-Beschreibung, Overline «Alma Douro» und der Link «Conheça a minha história».') +
   section('Sobre (`/sobre`)', sobre, 'Die Formulierungen «Sobre Alma Douro» (Seitentitel), «Fale-me da sua viagem» (Button) sowie Seitentitel/Meta-Beschreibung sind von Amanet ergänzt.') +
+  section('Serviços (`/servicos`)', servicos) +
+  section('Experiências – Cruzeiros & Comboio histórico (`/experiencias`)', experiencias, 'Auf Wunsch weggelassen (interne Notizen): «Modalidade verificada: segunda a sexta-feira.», Abschnitt «Informações a confirmar para a próxima temporada 2027», «A assistência anunciada pelo vendedor está limitada ao cruzeiro». Zeilen `interest` sind technisch (Vorauswahl im Formular), kein Seitentext.') +
+  section('Experiências – Quintas (`/quintas`)', quintas) +
+  section('Outras descobertas do Douro (`/descobrirodouro`)', descobrir) +
+  section('Parcerias (`/parceiros`)', parceiros, '`mailSubject` = Betreff der E-Mail beim Button «Propor uma parceria».') +
+  section('Contacto (`/contacto`)', contacto) +
   section('Menü', { pt: NAV.map((n) => n.label.pt), fr: NAV.map((n) => n.label.fr), en: NAV.map((n) => n.label.en) });
 
 const drafts =
   head(
-    'Text-Entwürfe zur Freigabe',
-    'Diese Texte hat Amanet Digital auf Basis der freigegebenen Texte und der alten Website entworfen. Es wurden keine Preise, Zahlen, Bewertungen, Auszeichnungen oder weiteren Partner erfunden. Bitte inhaltlich prüfen (Seite, Sprache) und freigeben.\n\n**Bitte besonders prüfen:**\n- Parceiros: «Bistro Terrace, recomendado pelo Guia Michelin» stammt von der alten Website. Ist das noch aktuell?\n- Parceiros: Quinta da Casa Cimeira – gilt «Reserva e organização através da Alma Douro» auch hier? (Derzeit nur bei Quinta do Tedo.)\n- Contacto: «Respondo pessoalmente a cada mensagem» – passt das so?\n- Descobrir o Douro: Fahrzeit Porto–Douro «1 h 30 bis 2 h je nach Ziel», Weinlese «in der Regel September», historischer Zug «an bestimmten Daten, vor allem im Sommer».\n- Experiências: Zug-Karte verwendet das Foto «Tal mit Brücke (Pinhão)», da kein Zugfoto vorhanden ist.'
+    'Text-Entwürfe von Amanet zur Freigabe',
+    'Die Seitentexte stammen jetzt alle von Tania (siehe TRANSLATIONS_REVIEW.md). Hier stehen nur noch die Texte, die Amanet Digital entworfen hat: Danke-Seite, 404-Seite, Rechtstexte und allgemeine Texte (Header, Footer, Buttons). Bitte prüfen und freigeben.'
   ) +
-  section('Serviços (`/servicos`)', servicos) +
-  section('Experiências (`/experiencias`)', experiencias) +
-  section('Descobrir o Douro (`/descobrirodouro`)', descobrir) +
-  section('Parceiros (`/parceiros`)', parceiros) +
-  section('Contacto (`/contacto`)', contacto) +
   section('Danke-Seite (`/obrigado`)', obrigado) +
   section('404-Seite', notFound) +
-  section('Aviso legal / Impressum (`/aviso-legal`)', avisoLegal, 'Rechtstexte: Entwurf, keine Rechtsberatung. [address] = Adresse aus src/config.ts, [email] = info@alma-douro.com.') +
+  section('Aviso legal / Impressum (`/aviso-legal`)', avisoLegal, 'Rechtstexte: Entwurf, keine Rechtsberatung. [address] = Adresse aus src/config.ts, [email] = info@alma-douro.com, [phone] = +41 76 804 89 76.') +
   section('Política de privacidade (`/privacidade`)', privacidade) +
   section('Allgemeine Texte (Header, Footer, Buttons)', UI);
 

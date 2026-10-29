@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import Pic from '../../components/Pic.astro';
-import CtaBand from '../../components/CtaBand.astro';
 import { langPaths, type Lang } from '../../i18n';
 import { PHOTOS } from '../../i18n/images';
 import { descobrir } from '../../i18n/content/descobrir';
@@ -10,20 +9,39 @@ import { descobrir } from '../../i18n/content/descobrir';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Lang };
 const c = descobrir[lang];
-const s = c.sections;
 ---
 <Base lang={lang} pageKey="descobrirodouro" title={c.title} description={c.description}>
   <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} photo={PHOTOS.valley} position="50% 60%" />
 
   <section class="section section--alt">
+    <div class="container">
+      <div class="center reveal"><h2 set:html={c.viewpoints.title} /><hr class="rule" /></div>
+      <div class="grid-2" style="margin-top:2.5rem">
+        {c.viewpoints.items.map((x) => (
+          <article class="tile place reveal">
+            <h3>{x.name}</h3>
+            <p class="place-sub">{x.title}</p>
+            <p>{x.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container split">
       <div class="reveal">
-        <h2>{s.where.title}</h2>
+        <h2 set:html={c.villages.title} />
         <hr class="rule" />
-        {s.where.text.map((p) => <p>{p}</p>)}
-        <h2 style="margin-top:3rem">{s.landscape.title}</h2>
-        <hr class="rule" />
-        {s.landscape.text.map((p) => <p>{p}</p>)}
+        <div style="display:grid;gap:2rem">
+          {c.villages.items.map((x) => (
+            <article class="tile place">
+              <h3>{x.name}</h3>
+              <p class="place-sub">{x.title}</p>
+              <p>{x.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
       <div class="media media-frame reveal" style="aspect-ratio:4/5">
         <Pic photo={PHOTOS.terraces} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" />
@@ -31,44 +49,11 @@ const s = c.sections;
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="center reveal"><h2>{s.when.title}</h2><hr class="rule" /></div>
-      <div class="grid-2" style="margin-top:2.5rem">
-        {s.when.seasons.map((x) => <div class="tile reveal"><h3>{x.title}</h3><p>{x.text}</p></div>)}
-      </div>
-    </div>
-  </section>
-
-  <section class="section dark">
-    <div class="container split">
-      <div class="media reveal" style="aspect-ratio:4/3">
-        <Pic photo={PHOTOS.aerial} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" />
-      </div>
-      <div class="reveal">
-        <h2>{s.access.title}</h2>
-        <hr class="rule" />
-        {s.access.text.map((p) => <p>{p}</p>)}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="center reveal"><h2>{s.places.title}</h2><hr class="rule" /></div>
-      <div class="grid-3" style="margin-top:2.5rem">
-        {s.places.items.map((x) => <div class="tile reveal"><h3>{x.title}</h3><p>{x.text}</p></div>)}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
+  <section class="cta-band dark section">
     <div class="container narrow center reveal">
-      <h2>{s.food.title}</h2>
+      <h2 set:html={c.route.title} />
       <hr class="rule" />
-      {s.food.text.map((p) => <p>{p}</p>)}
+      {c.route.text.map((p) => <p class="lead">{p}</p>)}
     </div>
   </section>
-
-  <CtaBand lang={lang} title={c.cta.title} paragraphs={[c.cta.text]} button={c.cta.button} />
 </Base>

@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { localePath, UI, type Lang, type PageKey } from '../i18n';
-import { ADDRESS, EMAIL } from '../config';
+import { ADDRESS, EMAIL, PHONE } from '../config';
 
 interface Props {
   lang: Lang;
@@ -15,6 +15,7 @@ const fill = (s: string) =>
   s
     .replace('{address}', address)
     .replaceAll('{email}', `<a href="mailto:${EMAIL}">${EMAIL}</a>`)
+    .replaceAll('{phone}', `<a href="${PHONE.href}">${PHONE.display}</a>`)
     .replace('{privacy}', `<a href="${localePath(lang, 'privacidade')}">${t.privacy.toLowerCase()}</a>`);
 ---
 <Base lang={lang} pageKey={pageKey} title={page.title} description={page.description}>

@@ -1,0 +1,16 @@
+---
+// Karte für ein Angebot (Kreuzfahrt / Zug) mit Liste und Button zum Kontaktformular.
+import { localePath, type Lang } from '../i18n';
+interface Props { lang: Lang; item: { title: string; lead: string; bullets: string[]; button: string; interest: string }; heading?: 'h2' | 'h3' }
+const { lang, item, heading = 'h3' } = Astro.props;
+const H = heading;
+const href = `${localePath(lang, 'contacto')}?interesse=${encodeURIComponent(item.interest)}#formulario`;
+---
+<article class="card offer reveal">
+  <div class="body">
+    <H class="offer-title">{item.title}</H>
+    <p class="offer-lead">{item.lead}</p>
+    <ul class="check-list">{item.bullets.map((b) => <li>{b}</li>)}</ul>
+  </div>
+  <div class="offer-foot"><a class="btn btn--gold" href={href}>{item.button}</a></div>
+</article>

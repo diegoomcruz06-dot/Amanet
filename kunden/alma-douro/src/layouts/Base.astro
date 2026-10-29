@@ -12,7 +12,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppIcon from '../components/WhatsAppIcon.astro';
 import { LANGS, DEFAULT_LANG, HTML_LANG, OG_LOCALE, UI, localePath, navLabel, type Lang, type PageKey } from '../i18n';
-import { SITE_URL, SITE_NAME, EMAIL, whatsappUrl } from '../config';
+import { SITE_URL, SITE_NAME, EMAIL, PHONE, SOCIAL, whatsappUrl } from '../config';
 
 interface Props {
   lang: Lang;
@@ -38,6 +38,8 @@ const org = {
   logo: abs(logoPng.src),
   image: ogImage,
   email: EMAIL,
+  telephone: PHONE.display.replace(/ /g, ''),
+  sameAs: SOCIAL.map((s) => s.url),
   founder: { '@type': 'Person', name: 'Tânia Afonso' },
   availableLanguage: ['fr', 'pt', 'en'],
   areaServed: { '@type': 'Place', name: 'Douro, Portugal' },
@@ -55,9 +57,6 @@ const breadcrumb =
       }
     : null;
 const wa = whatsappUrl(t.whatsappText);
-if (!wa && import.meta.env.DEV === false && lang === DEFAULT_LANG && pageKey === '') {
-  console.warn('[alma-douro] WHATSAPP_NUMBER ist noch leer (src/config.ts) – WhatsApp-Buttons führen auf die Kontaktseite.');
-}
 ---
 <!doctype html>
 <html lang={HTML_LANG[lang]}>

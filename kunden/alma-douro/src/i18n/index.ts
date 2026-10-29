@@ -11,6 +11,7 @@ export type PageKey =
   | 'sobre'
   | 'servicos'
   | 'experiencias'
+  | 'quintas'
   | 'descobrirodouro'
   | 'parceiros'
   | 'contacto'
@@ -39,7 +40,7 @@ export const NAV: { key: PageKey; label: Record<Lang, string> }[] = [
   { key: 'servicos', label: { fr: 'Services', pt: 'Serviços', en: 'Services' } },
   { key: 'experiencias', label: { fr: 'Expériences', pt: 'Experiências', en: 'Experiences' } },
   { key: 'descobrirodouro', label: { fr: 'Découvrir le Douro', pt: 'Descobrir o Douro', en: 'Discover the Douro' } },
-  { key: 'parceiros', label: { fr: 'Partenaires', pt: 'Parceiros', en: 'Partners' } },
+  { key: 'parceiros', label: { fr: 'Partenariats', pt: 'Parcerias', en: 'Partnerships' } },
   { key: 'contacto', label: { fr: 'Contact', pt: 'Contacto', en: 'Contact' } },
 ];
 

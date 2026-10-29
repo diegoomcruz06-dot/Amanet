@@ -17,7 +17,7 @@ const t = UI[lang];
     <nav class="site-nav" id="site-nav" aria-label={t.mainNav}>
       <ul class="nav-list">
         {NAV.map((n) => (
-          <li><a href={localePath(lang, n.key)} aria-current={n.key === pageKey ? 'page' : undefined}>{n.label[lang]}</a></li>
+          <li><a href={localePath(lang, n.key)} aria-current={n.key === pageKey ? 'page' : n.key === 'experiencias' && pageKey === 'quintas' ? 'true' : undefined}>{n.label[lang]}</a></li>
         ))}
       </ul>
       <div class="nav-extra">

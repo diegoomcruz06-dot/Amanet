@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Pic from '../../components/Pic.astro';
+import { langPaths, localePath, type Lang } from '../../i18n';
+import { PHOTOS } from '../../i18n/images';
+import { quintas } from '../../i18n/content/quintas';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const c = quintas[lang];
+---
+<Base lang={lang} pageKey="quintas" title={c.title} description={c.description}>
+  <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} photo={PHOTOS.terraces} />
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid-2 quintas-grid">
+        {c.items.map((item) => (
+          <article class="tile reveal">
+            <h2>{item.title}</h2>
+            {item.text.map((p) => <p>{p}</p>)}
+          </article>
+        ))}
+      </div>
+      <div class="center reveal" style="margin-top:clamp(3rem,6vw,4.5rem)">
+        <div class="btn-row"><a class="btn btn--gold" href={`${localePath(lang, 'contacto')}?interesse=quintas#formulario`}>{c.button}</a></div>
+        <p class="fine-print">{c.note}</p>
+      </div>
+    </div>
+  </section>
+</Base>

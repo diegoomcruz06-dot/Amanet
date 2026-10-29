@@ -1,92 +1,74 @@
-// «Serviços». TEXT-ENTWURF (Amanet Digital), abgeleitet aus den freigegebenen Texten. Freigabe durch Tania: siehe DRAFTS_REVIEW.md.
+// «Serviços». PT = definitiver Text der Kundin (Überarbeitung 29.10.2026, 01-servicos.md). FR/EN = Übersetzungen.
 export const servicos = {
   pt: {
-    title: 'Serviços | Viagem ao Douro organizada de A a Z',
+    title: 'Serviços | Viver o Douro à sua medida',
     description:
-      'Conversa inicial, organização com parceiros locais, dossier de viagem personalizado e acompanhamento durante a estadia no Douro.',
+      'Cruzeiros, comboio histórico, quintas e sabores, paisagens e aldeias, alojamento: experiências no Douro combinadas numa viagem personalizada.',
     eyebrow: 'Serviços',
-    h1: 'Uma viagem organizada de A a Z, <em>à sua medida</em>',
-    intro:
-      'Cada viagem começa por si: pelas suas ideias, pelo seu ritmo e pelo seu orçamento. Eu trato da organização, para que possa simplesmente aproveitar o Douro.',
-    servicesTitle: 'O que faço <em>por si</em>',
-    services: [
-      { title: 'Conversa inicial e planeamento', text: 'Começamos por uma conversa. Diga-me quando gostaria de viajar, com quem e o que mais lhe interessa. A partir daí, preparo sugestões de acordo com os seus desejos e o seu orçamento.' },
-      { title: 'Organização de A a Z com parceiros locais', text: 'Do transfer do aeroporto ao alojamento, das visitas às experiências: trato das reservas acordadas, em colaboração com parceiros locais.' },
-      { title: 'Dossier de viagem personalizado', text: 'Antes de partir, recebe um itinerário com os horários, as moradas, os contactos, as informações das reservas e as indicações úteis para a sua estadia.' },
-      { title: 'Acompanhamento durante a estadia', text: 'O meu acompanhamento não termina quando a viagem começa. Continuo disponível durante a sua estadia, caso surja uma dúvida ou um problema.' },
+    h1: 'Há muitas formas de viver o Douro. <em>Qual será a sua?</em>',
+    intro: [
+      'A partir do rio, à mesa de uma quinta ou pela janela de um comboio histórico, cada descoberta revela um pouco desta região.',
+      'Explore o que mais o inspira. Depois, vamos encontrar as experiências que combinam consigo.',
     ],
-    notIncluded: {
-      title: 'O que fica a seu cargo',
-      text: 'Os bilhetes de avião não estão incluídos. Assim, escolhe livremente a companhia, o horário e o aeroporto de partida que mais lhe convêm. Eu trato de tudo a partir da sua chegada a Portugal.',
+    blocks: [
+      { title: 'Ao ritmo do rio', text: 'Deixe o olhar acompanhar as encostas e descubra o Douro a partir da água. Entre passeios de barco e cruzeiros com refeição a bordo, existem diferentes formas de desfrutar do rio, conforme o tempo disponível e a experiência que procura.', button: 'Descobrir os cruzeiros' },
+      { title: 'Pelos caminhos do comboio histórico', text: 'Viaje ao ritmo de outros tempos e aprecie a paisagem pela janela. Uma experiência para quem gosta de juntar história e descoberta, integrada num programa de acordo com as datas de circulação.', button: 'Saber mais sobre o comboio histórico' },
+      { title: 'Nas quintas e à mesa', text: 'Conheça as histórias por detrás dos vinhos, visite quintas e reserve tempo para saborear a região. Das provas de vinho às sugestões gastronómicas, descubra o Douro através de quem o trabalha e o conhece.', button: 'Explorar quintas e sabores' },
+      { title: 'Entre paisagens e aldeias', text: 'Pare num miradouro, percorra uma aldeia ou desfrute de uma praia fluvial. São sugestões para completar a sua estadia, escolhidas de acordo com a época do ano, os seus interesses e o seu ritmo.', button: '' },
+    ],
+    stay: {
+      title: 'Encontre o seu lugar no Douro',
+      text: 'O alojamento também faz parte da experiência. Uma casa acolhedora, uma estadia numa quinta ou um hotel: vamos procurar o ambiente que combina com os dias que imagina viver.',
+      closing: 'Pode escolher uma experiência ou combinar várias numa viagem personalizada. Os programas, as datas e os valores são confirmados mediante pedido, de acordo com a disponibilidade dos parceiros.',
+      button: 'Quero preparar a minha experiência no Douro',
     },
-    forWhom: {
-      title: 'Para <em>quem?</em>',
-      items: [
-        { title: 'A dois', text: 'Uma escapadinha para abrandar e partilhar momentos especiais.' },
-        { title: 'Em família', text: 'Uns dias para descobrir a região juntos, ao ritmo de todos.' },
-        { title: 'Entre amigos', text: 'Uma descoberta partilhada, entre paisagens, quintas e sabores.' },
-      ],
-    },
-    button: 'Fazer um pedido',
   },
 
   fr: {
-    title: 'Services | Votre voyage dans le Douro de A à Z',
+    title: 'Services | Vivre le Douro à votre façon',
     description:
-      'Premier échange, organisation avec des partenaires locaux, carnet de voyage personnalisé et accompagnement pendant votre séjour dans le Douro.',
+      'Croisières, train historique, quintas et saveurs, paysages et villages, hébergement : des expériences dans le Douro réunies dans un voyage sur mesure.',
     eyebrow: 'Services',
-    h1: 'Un voyage organisé de A à Z, <em>sur mesure</em>',
-    intro:
-      'Chaque voyage commence par vous : vos idées, votre rythme et votre budget. Je m’occupe de l’organisation, pour que vous puissiez simplement profiter du Douro.',
-    servicesTitle: 'Ce que je fais <em>pour vous</em>',
-    services: [
-      { title: 'Premier échange et planification', text: 'Tout commence par une conversation. Dites-moi quand vous aimeriez voyager, avec qui et ce qui vous intéresse le plus. Je prépare ensuite des propositions selon vos envies et votre budget.' },
-      { title: 'Organisation de A à Z avec des partenaires locaux', text: 'Du transfert depuis l’aéroport à l’hébergement, des visites aux expériences : je m’occupe des réservations convenues, en collaboration avec des partenaires locaux.' },
-      { title: 'Carnet de voyage personnalisé', text: 'Avant votre départ, vous recevez un itinéraire avec les horaires, les adresses, les contacts, les informations de réservation et les indications utiles pour votre séjour.' },
-      { title: 'Accompagnement pendant le séjour', text: 'Mon accompagnement ne s’arrête pas lorsque le voyage commence. Je reste disponible pendant votre séjour, en cas de question ou d’imprévu.' },
+    h1: 'Il existe de nombreuses façons de vivre le Douro. <em>Quelle sera la vôtre ?</em>',
+    intro: [
+      'Depuis le fleuve, à la table d’une quinta ou par la fenêtre d’un train historique, chaque découverte révèle un peu de cette région.',
+      'Explorez ce qui vous inspire le plus. Ensuite, nous trouverons les expériences qui vous ressemblent.',
     ],
-    notIncluded: {
-      title: 'Ce qui reste à votre charge',
-      text: 'Les billets d’avion ne sont pas inclus. Vous choisissez ainsi librement la compagnie, l’horaire et l’aéroport de départ qui vous conviennent. Je m’occupe de tout à partir de votre arrivée au Portugal.',
+    blocks: [
+      { title: 'Au rythme du fleuve', text: 'Laissez votre regard suivre les coteaux et découvrez le Douro depuis l’eau. Entre balades en bateau et croisières avec repas à bord, il existe différentes façons de profiter du fleuve, selon le temps dont vous disposez et l’expérience que vous recherchez.', button: 'Découvrir les croisières' },
+      { title: 'Sur les rails du train historique', text: 'Voyagez au rythme d’autrefois et admirez le paysage par la fenêtre. Une expérience pour celles et ceux qui aiment allier histoire et découverte, intégrée à un programme selon les dates de circulation.', button: 'En savoir plus sur le train historique' },
+      { title: 'Dans les quintas et à table', text: 'Découvrez les histoires qui se cachent derrière les vins, visitez des quintas et prenez le temps de savourer la région. Des dégustations de vin aux suggestions gastronomiques, découvrez le Douro à travers celles et ceux qui le travaillent et le connaissent.', button: 'Explorer quintas et saveurs' },
+      { title: 'Entre paysages et villages', text: 'Arrêtez-vous à un belvédère, parcourez un village ou profitez d’une plage fluviale. Autant de suggestions pour compléter votre séjour, choisies selon la saison, vos centres d’intérêt et votre rythme.', button: '' },
+    ],
+    stay: {
+      title: 'Trouvez votre place dans le Douro',
+      text: 'L’hébergement fait aussi partie de l’expérience. Une maison chaleureuse, un séjour dans une quinta ou un hôtel : nous chercherons l’ambiance qui correspond aux jours que vous imaginez vivre.',
+      closing: 'Vous pouvez choisir une expérience ou en combiner plusieurs dans un voyage personnalisé. Les programmes, les dates et les prix sont confirmés sur demande, selon la disponibilité des partenaires.',
+      button: 'Je veux préparer mon expérience dans le Douro',
     },
-    forWhom: {
-      title: 'Pour <em>qui ?</em>',
-      items: [
-        { title: 'À deux', text: 'Une escapade pour ralentir et partager des moments précieux.' },
-        { title: 'En famille', text: 'Quelques jours pour découvrir la région ensemble, au rythme de chacun.' },
-        { title: 'Entre amis', text: 'Une découverte partagée, entre paysages, quintas et saveurs.' },
-      ],
-    },
-    button: 'Faire une demande',
   },
 
   en: {
-    title: 'Services | Your Douro trip, organised from A to Z',
+    title: 'Services | Experience the Douro your way',
     description:
-      'An initial conversation, organisation with local partners, a personalised travel dossier and support throughout your stay in the Douro.',
+      'Cruises, the historic train, quintas and flavours, landscapes and villages, accommodation: Douro experiences combined into a tailor-made trip.',
     eyebrow: 'Services',
-    h1: 'A trip organised from A to Z, <em>made for you</em>',
-    intro:
-      'Every trip starts with you: your ideas, your pace and your budget. I take care of the organisation, so that you can simply enjoy the Douro.',
-    servicesTitle: 'What I do <em>for you</em>',
-    services: [
-      { title: 'Initial conversation and planning', text: 'We begin with a conversation. Tell me when you would like to travel, who with and what interests you most. From there, I prepare suggestions in line with your wishes and your budget.' },
-      { title: 'Organised from A to Z with local partners', text: 'From the airport transfer to your accommodation, from visits to experiences: I take care of the agreed bookings, working with local partners.' },
-      { title: 'Personalised travel dossier', text: 'Before you leave, you receive an itinerary with times, addresses, contacts, booking details and useful tips for your stay.' },
-      { title: 'Support during your stay', text: 'My support doesn’t end when your trip begins. I remain available throughout your stay, should a question or a problem come up.' },
+    h1: 'There are many ways to experience the Douro. <em>Which will be yours?</em>',
+    intro: [
+      'From the river, at the table of a quinta or through the window of a historic train, every discovery reveals a little more of this region.',
+      'Explore what inspires you most. Then we will find the experiences that suit you.',
     ],
-    notIncluded: {
-      title: 'What you book yourself',
-      text: 'Flights are not included. This way, you are free to choose the airline, the schedule and the departure airport that suit you best. I take care of everything from your arrival in Portugal.',
+    blocks: [
+      { title: 'At the river’s pace', text: 'Let your eyes follow the hillsides and discover the Douro from the water. From boat trips to cruises with a meal on board, there are different ways to enjoy the river, depending on the time you have and the experience you are looking for.', button: 'Discover the cruises' },
+      { title: 'Along the historic railway', text: 'Travel at the pace of times gone by and take in the landscape through the window. An experience for those who like to combine history and discovery, built into a programme around the train’s operating dates.', button: 'Learn more about the historic train' },
+      { title: 'At the quintas and at the table', text: 'Hear the stories behind the wines, visit quintas and take time to savour the region. From wine tastings to food recommendations, discover the Douro through the people who work it and know it.', button: 'Explore quintas and flavours' },
+      { title: 'Among landscapes and villages', text: 'Stop at a viewpoint, wander through a village or enjoy a river beach. These are suggestions to round off your stay, chosen according to the season, your interests and your pace.', button: '' },
+    ],
+    stay: {
+      title: 'Find your place in the Douro',
+      text: 'Accommodation is part of the experience too. A welcoming house, a stay at a quinta or a hotel: we will look for the setting that suits the days you imagine.',
+      closing: 'You can choose one experience or combine several in a tailor-made trip. Programmes, dates and prices are confirmed on request, subject to the partners’ availability.',
+      button: 'I want to plan my Douro experience',
     },
-    forWhom: {
-      title: 'Who is it <em>for?</em>',
-      items: [
-        { title: 'For two', text: 'A getaway to slow down and share special moments.' },
-        { title: 'With family', text: 'A few days to discover the region together, at everyone’s pace.' },
-        { title: 'With friends', text: 'A shared discovery of landscapes, quintas and flavours.' },
-      ],
-    },
-    button: 'Send an enquiry',
   },
 };

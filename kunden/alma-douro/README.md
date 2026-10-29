@@ -38,7 +38,9 @@ public/
 
 **Texte ändern:** in `src/i18n/content/<seite>.ts` – jede Seite hat einen `pt`-, `fr`- und `en`-Block. Danach `npm run review`.
 
-**WhatsApp aktivieren:** Nummer in `src/config.ts` → `WHATSAPP_NUMBER` eintragen (z. B. `'41791234567'`). Dann erscheinen die WhatsApp-Buttons automatisch.
+**Kontaktdaten:** E-Mail, Telefon/WhatsApp und Social-Media-Links stehen zentral in `src/config.ts`.
+
+**Formular-Vorauswahl:** Die Buttons «Pedir informações» öffnen `/contacto?interesse=cruzeiros` (bzw. `comboio`, `quintas`) und haken die passende Checkbox im Formular an. Die Checkbox-Werte kommen in allen Sprachen auf Portugiesisch bei Netlify an.
 
 ## Seiten
 
@@ -47,9 +49,10 @@ public/
 | Startseite | `/` | `/pt/` | `/en/` |
 | Über mich | `/sobre` | `/pt/sobre` | `/en/sobre` |
 | Leistungen | `/servicos` | `/pt/servicos` | `/en/servicos` |
-| Erlebnisse | `/experiencias` | `/pt/experiencias` | `/en/experiencias` |
-| Das Douro entdecken | `/descobrirodouro` | `/pt/descobrirodouro` | `/en/descobrirodouro` |
-| Partner | `/parceiros` | `/pt/parceiros` | `/en/parceiros` |
+| Erlebnisse: Kreuzfahrten & historischer Zug (Anker `#cruzeiros`, `#comboio`) | `/experiencias` | `/pt/experiencias` | `/en/experiencias` |
+| Erlebnisse: Quintas (nicht im Menü, verlinkt aus Serviços) | `/quintas` | `/pt/quintas` | `/en/quintas` |
+| Weitere Entdeckungen («Descobrir o Douro» im Menü) | `/descobrirodouro` | `/pt/descobrirodouro` | `/en/descobrirodouro` |
+| Partnerschaften | `/parceiros` | `/pt/parceiros` | `/en/parceiros` |
 | Kontakt | `/contacto` | `/pt/contacto` | `/en/contacto` |
 | Impressum | `/aviso-legal` | `/pt/aviso-legal` | `/en/aviso-legal` |
 | Datenschutz | `/privacidade` | `/pt/privacidade` | `/en/privacidade` |

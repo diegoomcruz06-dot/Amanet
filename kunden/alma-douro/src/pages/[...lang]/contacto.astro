@@ -1,83 +1,101 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
-import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
-import { langPaths, localePath, UI, type Lang } from '../../i18n';
-import { EMAIL, whatsappUrl } from '../../config';
-import { contacto } from '../../i18n/content/contacto';
+import { langPaths, localePath, type Lang } from '../../i18n';
+import { EMAIL, PHONE, SOCIAL } from '../../config';
+import { contacto, INTERESTS } from '../../i18n/content/contacto';
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Lang };
 const c = contacto[lang];
 const f = c.form;
-const t = UI[lang];
-const wa = whatsappUrl(t.whatsappText);
-const consent = f.consent.replace('{privacy}', localePath(lang, 'privacidade'));
+const privacy = f.privacy.replace('{privacy}', localePath(lang, 'privacidade'));
 ---
 <Base lang={lang} pageKey="contacto" title={c.title} description={c.description}>
   <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} />
 
-  <section class="section section--alt">
+  <section class="section section--alt" id="formulario">
     <div class="container form-wrap">
       <form class="form" name="contacto" method="POST" action={localePath(lang, 'obrigado')} data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="form-title">
         <h2 id="form-title" style="font-size:clamp(1.7rem,3vw,2.2rem);margin-bottom:0">{f.title}</h2>
-        <p class="form-note">{f.required}</p>
+        <p class="form-note">{f.lead}</p>
         <input type="hidden" name="form-name" value="contacto" />
         <input type="hidden" name="idioma" value={lang} />
         <p class="hp" aria-hidden="true"><label>{f.honeypot} <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
+        <div class="field">
+          <label for="f-name">{f.name} *</label>
+          <input id="f-name" name="nome" type="text" autocomplete="name" required />
+        </div>
         <div class="form-row">
-          <div class="field">
-            <label for="f-name">{f.name} *</label>
-            <input id="f-name" name="nome" type="text" autocomplete="name" required />
-          </div>
           <div class="field">
             <label for="f-email">{f.email} *</label>
             <input id="f-email" name="email" type="email" autocomplete="email" required />
           </div>
-        </div>
-        <div class="form-row">
           <div class="field">
-            <label for="f-phone">{f.phone} <span class="opt">({f.optional})</span></label>
+            <label for="f-phone">{f.phone}</label>
             <input id="f-phone" name="telefone" type="tel" autocomplete="tel" />
           </div>
-          <div class="field">
-            <label for="f-people">{f.people} <span class="opt">({f.optional})</span></label>
-            <input id="f-people" name="pessoas" type="number" min="1" max="99" inputmode="numeric" />
-          </div>
         </div>
         <div class="field">
-          <label for="f-period">{f.period} <span class="opt">({f.optional})</span></label>
-          <input id="f-period" name="periodo" type="text" aria-describedby="f-period-hint" />
-          <span class="hint" id="f-period-hint">{f.periodHint}</span>
+          <label for="f-when">{f.when}</label>
+          <span class="hint" id="f-when-hint">{f.whenHint}</span>
+          <input id="f-when" name="quando" type="text" aria-describedby="f-when-hint" />
         </div>
         <div class="field">
-          <label for="f-message">{f.message} *</label>
-          <textarea id="f-message" name="mensagem" required aria-describedby="f-message-hint"></textarea>
+          <label for="f-people">{f.people}</label>
+          <span class="hint" id="f-people-hint">{f.peopleHint}</span>
+          <input id="f-people" name="pessoas" type="text" aria-describedby="f-people-hint" />
+        </div>
+        <fieldset class="field choices">
+          <legend>{f.interests}</legend>
+          {INTERESTS.map((it, i) => (
+            <label class="choice">
+              <input type="checkbox" name={`descobrir-${it.key}`} value={it.value} data-interest={it.key} />
+              <span>{f.interestLabels[i]}</span>
+            </label>
+          ))}
+        </fieldset>
+        <div class="field">
+          <label for="f-budget">{f.budget}</label>
+          <span class="hint" id="f-budget-hint">{f.budgetHint}</span>
+          <input id="f-budget" name="orcamento" type="text" aria-describedby="f-budget-hint" />
+        </div>
+        <div class="field">
+          <label for="f-message">{f.message}</label>
           <span class="hint" id="f-message-hint">{f.messageHint}</span>
+          <textarea id="f-message" name="mensagem" aria-describedby="f-message-hint"></textarea>
         </div>
-        <div class="consent">
-          <input id="f-consent" name="consentimento" type="checkbox" value="sim" required />
-          <label for="f-consent" set:html={`${consent} *`} />
-        </div>
+        <p class="form-note privacy-note" set:html={privacy} />
         <div><button class="btn btn--gold" type="submit">{f.submit}</button></div>
+        <div class="signature-block">
+          <p>{c.closing}</p>
+          <p class="sig-name">Tania Afonso</p>
+          <p class="sig-brand">Alma Douro</p>
+        </div>
       </form>
 
       <aside class="aside-card reveal" aria-labelledby="direct-title">
         <h2 id="direct-title" style="font-size:clamp(1.6rem,2.6vw,2rem)">{c.direct.title}</h2>
         <dl>
-          <div>
-            <dt>{c.direct.email}</dt>
-            <dd><a class="mail" href={`mailto:${EMAIL}`}>{EMAIL}</a></dd>
-          </div>
-          {wa && (
-            <div>
-              <dt>{c.direct.whatsapp}</dt>
-              <dd><a class="btn btn--outline" href={wa} rel="noopener" target="_blank"><WhatsAppIcon />{t.whatsapp}</a></dd>
-            </div>
-          )}
+          <div><dt>{c.direct.email}</dt><dd><a class="mail" href={`mailto:${EMAIL}`}>{EMAIL}</a></dd></div>
+          <div><dt>{c.direct.phone}</dt><dd><a class="mail" href={PHONE.href}>{PHONE.display}</a></dd></div>
+          {SOCIAL.map((s) => (
+            <div><dt>{s.name}</dt><dd><a class="mail" href={s.url} rel="noopener" target="_blank">{s.handle}</a></dd></div>
+          ))}
         </dl>
       </aside>
     </div>
   </section>
 </Base>
+
+<script>
+  // Vorauswahl aus ?interesse=cruzeiros,comboio (Buttons «Pedir informações»)
+  const wanted = new URLSearchParams(location.search).get('interesse');
+  if (wanted) {
+    for (const key of wanted.split(',')) {
+      const box = document.querySelector<HTMLInputElement>(`input[data-interest="${CSS.escape(key)}"]`);
+      if (box) box.checked = true;
+    }
+  }
+</script>
