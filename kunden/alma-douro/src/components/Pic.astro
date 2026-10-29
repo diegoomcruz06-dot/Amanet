@@ -1,0 +1,30 @@
+---
+import { Picture } from 'astro:assets';
+import type { Photo } from '../i18n/images';
+import type { Lang } from '../i18n';
+
+interface Props {
+  photo: Photo;
+  lang: Lang;
+  sizes: string;
+  widths?: number[];
+  priority?: boolean;
+  class?: string;
+  position?: string;
+}
+const { photo, lang, sizes, widths = [400, 720, 960, 1200, 1440], priority = false, class: cls, position } = Astro.props;
+const usable = widths.filter((w) => w <= photo.src.width);
+---
+<Picture
+  src={photo.src}
+  alt={photo.alt[lang]}
+  formats={['avif', 'webp']}
+  widths={usable.length ? usable : [photo.src.width]}
+  sizes={sizes}
+  loading={priority ? 'eager' : 'lazy'}
+  decoding={priority ? 'sync' : 'async'}
+  fetchpriority={priority ? 'high' : 'auto'}
+  quality={priority ? 52 : 60}
+  class={cls}
+  style={position ? `object-position:${position}` : undefined}
+/>

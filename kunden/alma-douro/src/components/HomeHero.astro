@@ -1,0 +1,30 @@
+---
+// Hero mit Art Direction: Hochformat (Tal mit Brücke) auf Mobile, Luftbild auf Desktop.
+import { getImage } from 'astro:assets';
+import { PHOTOS } from '../i18n/images';
+import type { Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const QUALITY = { avif: 48, webp: 58, jpg: 68 };
+const build = async (src: ImageMetadata, widths: number[], format: 'avif' | 'webp' | 'jpg') => {
+  const imgs = await Promise.all(widths.filter((w) => w <= src.width).map((w) => getImage({ src, width: w, format, quality: QUALITY[format] })));
+  return imgs.map((i) => `${i.src} ${i.attributes.width}w`).join(', ');
+};
+const mob = PHOTOS.valley.src;
+const desk = PHOTOS.aerial.src;
+const sets = {
+  deskAvif: await build(desk, [1280, 1600, 1920], 'avif'),
+  deskWebp: await build(desk, [1280, 1600, 1920], 'webp'),
+  mobAvif: await build(mob, [480, 750, 1080], 'avif'),
+  mobWebp: await build(mob, [480, 750, 1080], 'webp'),
+};
+const fallback = await getImage({ src: mob, width: 750, format: 'jpg', quality: QUALITY.jpg });
+---
+<picture>
+  <source media="(min-width: 900px)" type="image/avif" srcset={sets.deskAvif} sizes="100vw" />
+  <source media="(min-width: 900px)" type="image/webp" srcset={sets.deskWebp} sizes="100vw" />
+  <source type="image/avif" srcset={sets.mobAvif} sizes="100vw" />
+  <source type="image/webp" srcset={sets.mobWebp} sizes="100vw" />
+  <img src={fallback.src} width={mob.width} height={mob.height} alt={PHOTOS.valley.alt[lang]} fetchpriority="high" loading="eager" decoding="sync" style="object-position:50% 62%" />
+</picture>

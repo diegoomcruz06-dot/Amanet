@@ -1,0 +1,23 @@
+---
+import { localePath, UI, type Lang } from '../i18n';
+import { whatsappUrl } from '../config';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+interface Props { lang: Lang; title: string; paragraphs?: string[]; button: string; whatsapp?: boolean }
+const { lang, title, paragraphs = [], button, whatsapp = true } = Astro.props;
+const t = UI[lang];
+const wa = whatsappUrl(t.whatsappText);
+---
+<section class="cta-band dark section">
+  <div class="container narrow center reveal">
+    <h2 set:html={title} />
+    <hr class="rule" />
+    {paragraphs.map((p) => <p class="lead">{p}</p>)}
+    <div class="btn-row">
+      <a class="btn btn--gold" href={localePath(lang, 'contacto')}>{button}</a>
+      {whatsapp && wa && (
+        <a class="btn btn--outline" href={wa} rel="noopener" target="_blank"><WhatsAppIcon />{t.whatsapp}</a>
+      )}
+    </div>
+  </div>
+</section>

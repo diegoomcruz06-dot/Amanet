@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, localePath, type Lang } from '../../i18n';
+import { obrigado } from '../../i18n/content/contacto';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const c = obrigado[lang];
+---
+<Base lang={lang} pageKey="obrigado" title={c.title} description={c.description} noindex>
+  <section class="section container narrow center" style="min-height:55vh">
+    <h1 set:html={c.h1} />
+    <hr class="rule" />
+    <p class="lead">{c.text}</p>
+    <div class="btn-row"><a class="btn btn--gold" href={localePath(lang, '')}>{c.button}</a></div>
+  </section>
+</Base>

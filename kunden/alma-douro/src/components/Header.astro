@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import monogram from '../assets/logo/monograma-alma-douro.png';
+import { NAV, LANGS, UI, HTML_LANG, localePath, type Lang, type PageKey } from '../i18n';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props { lang: Lang; pageKey: PageKey }
+const { lang, pageKey } = Astro.props;
+const t = UI[lang];
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={localePath(lang, '')} aria-label={t.logoAlt}>
+      <Image src={monogram} alt="" width={88} height={88} loading="eager" />
+      <span aria-hidden="true">ALMA DOURO</span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label={t.mainNav}>
+      <ul class="nav-list">
+        {NAV.map((n) => (
+          <li><a href={localePath(lang, n.key)} aria-current={n.key === pageKey ? 'page' : undefined}>{n.label[lang]}</a></li>
+        ))}
+      </ul>
+      <div class="nav-extra">
+        <LangSwitch lang={lang} pageKey={pageKey} />
+        <a class="btn btn--gold" href={localePath(lang, 'contacto')}>{t.cta}</a>
+      </div>
+    </nav>
+    <div class="header-actions">
+      <LangSwitch lang={lang} pageKey={pageKey} />
+      <a class="btn btn--gold header-cta" href={localePath(lang, 'contacto')}>{t.cta}</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-open={t.menu} data-close={t.closeMenu}>
+        <span class="bars" aria-hidden="true"></span><span class="label">{t.menu}</span>
+      </button>
+    </div>
+  </div>
+</header>

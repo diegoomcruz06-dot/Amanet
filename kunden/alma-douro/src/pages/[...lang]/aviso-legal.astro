@@ -1,0 +1,9 @@
+---
+import LegalPage from '../../components/LegalPage.astro';
+import { langPaths, type Lang } from '../../i18n';
+import { avisoLegal } from '../../i18n/content/legal';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+---
+<LegalPage lang={lang} pageKey="aviso-legal" page={avisoLegal[lang]} />

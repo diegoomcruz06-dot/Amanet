@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Steps from '../../components/Steps.astro';
+import { langPaths, localePath, type Lang } from '../../i18n';
+import { PARTNERS } from '../../config';
+import { parceiros } from '../../i18n/content/parceiros';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const c = parceiros[lang];
+const j = c.join;
+---
+<Base lang={lang} pageKey="parceiros" title={c.title} description={c.description}>
+  <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} />
+
+  <section class="section section--alt">
+    <div class="container">
+      {c.partners.map((p) => (
+        <article class="partner reveal" id={p.id}>
+          <div>
+            <h2 style="font-size:clamp(1.9rem,3vw,2.5rem)">{p.name}</h2>
+            <hr class="rule" style="margin:1.25rem 0" />
+            <a class="link-arrow" href={PARTNERS[p.id as keyof typeof PARTNERS]} rel="noopener" target="_blank">
+              {c.visit}<span class="visually-hidden"> {p.name} {c.newTab}</span>
+            </a>
+          </div>
+          <div>
+            {p.text.map((t) => <p>{t}</p>)}
+            {p.list.length > 0 && (
+              <>
+                <h3 style="font-family:var(--font-sans);font-size:.8125rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:500;margin-top:1.5rem">{c.experiencesLabel}</h3>
+                <ul class="check-list">{p.list.map((l) => <li>{l}</li>)}</ul>
+              </>
+            )}
+            {p.note && <p class="note" style="margin-top:1.25rem">{p.note}</p>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section dark" id="tornar-se-parceiro">
+    <div class="container">
+      <div class="center reveal">
+        <h2 set:html={j.title} />
+        <hr class="rule" />
+        <p class="lead" style="max-width:680px;margin-inline:auto">{j.lead}</p>
+      </div>
+      <div class="grid-3" style="margin-top:3.5rem">
+        <div class="tile reveal"><h3>{j.why.title}</h3><p>{j.why.text}</p></div>
+        <div class="tile reveal"><h3>{j.forWhom.title}</h3><ul class="check-list" style="font-size:1rem">{j.forWhom.items.map((i) => <li>{i}</li>)}</ul></div>
+        <div class="tile reveal"><h3>{j.goals.title}</h3><ul class="check-list" style="font-size:1rem">{j.goals.items.map((i) => <li>{i}</li>)}</ul></div>
+      </div>
+      <h3 class="center reveal" style="margin-top:4.5rem;font-size:clamp(1.8rem,3vw,2.4rem)">{j.steps.title}</h3>
+      <Steps items={j.steps.items} four />
+      <div class="btn-row" style="justify-content:center;margin-top:3rem"><a class="btn btn--gold" href={localePath(lang, 'contacto')}>{j.button}</a></div>
+    </div>
+  </section>
+</Base>

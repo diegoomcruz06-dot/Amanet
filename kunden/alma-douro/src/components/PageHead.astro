@@ -1,0 +1,22 @@
+---
+import type { Photo } from '../i18n/images';
+import type { Lang } from '../i18n';
+import Pic from './Pic.astro';
+
+interface Props { eyebrow?: string; title: string; intro?: string | string[]; photo?: Photo; lang: Lang; position?: string }
+const { eyebrow, title, intro, photo, lang, position } = Astro.props;
+const paras = intro ? (Array.isArray(intro) ? intro : [intro]) : [];
+---
+<header class:list={['page-head container', { 'page-head--image': photo, center: !photo }]}>
+  <div>
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1 set:html={title} />
+    {paras.map((p) => <p class="lead">{p}</p>)}
+    <slot />
+  </div>
+  {photo && (
+    <div class="media media-frame">
+      <Pic photo={photo} lang={lang} sizes="(min-width: 1280px) 560px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" priority position={position} />
+    </div>
+  )}
+</header>

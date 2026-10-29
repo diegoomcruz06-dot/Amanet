@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Pic from '../../components/Pic.astro';
+import Steps from '../../components/Steps.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { langPaths, type Lang } from '../../i18n';
+import { PHOTOS } from '../../i18n/images';
+import { servicos } from '../../i18n/content/servicos';
+import { home } from '../../i18n/content/home';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const c = servicos[lang];
+const h = home[lang];
+---
+<Base lang={lang} pageKey="servicos" title={c.title} description={c.description}>
+  <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} photo={PHOTOS.terrace} />
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="center reveal"><h2 set:html={c.servicesTitle} /></div>
+      <div class="cards">
+        {c.services.map((s) => (
+          <article class="card card--plain reveal"><div class="body"><h3>{s.title}</h3><p>{s.text}</p></div></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="media media-frame reveal" style="aspect-ratio:4/3">
+        <Pic photo={PHOTOS.aerial} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" />
+      </div>
+      <div class="reveal">
+        <h2 set:html={c.forWhom.title} />
+        <hr class="rule" />
+        <div style="display:grid;gap:1.5rem">
+          {c.forWhom.items.map((i) => <div class="tile"><h3>{i.title}</h3><p>{i.text}</p></div>)}
+        </div>
+        <div class="example" style="margin-top:2.5rem">
+          <span class="label">{c.notIncluded.title}</span>
+          {c.notIncluded.text}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="center reveal"><h2 set:html={h.steps.title} /></div>
+      <Steps items={h.steps.items} />
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={h.cta.title} paragraphs={h.cta.paragraphs} button={c.button} />
+</Base>

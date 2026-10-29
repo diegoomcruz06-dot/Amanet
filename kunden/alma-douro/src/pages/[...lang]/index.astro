@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import HomeHero from '../../components/HomeHero.astro';
+import Pic from '../../components/Pic.astro';
+import Steps from '../../components/Steps.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { langPaths, localePath, type Lang } from '../../i18n';
+import { PHOTOS } from '../../i18n/images';
+import { home } from '../../i18n/content/home';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const c = home[lang];
+const cardPhotos = [PHOTOS.aerial, PHOTOS.terraces, PHOTOS.valley, PHOTOS.terrace];
+---
+<Base lang={lang} pageKey="" title={c.title} description={c.description}>
+  <section class="hero">
+    <HomeHero lang={lang} />
+    <div class="container">
+      <div class="hero-content">
+        <p class="eyebrow">{c.hero.eyebrow}</p>
+        <h1>{c.hero.title}<span class="subtitle">{c.hero.subtitle}</span></h1>
+        <p>{c.hero.text}</p>
+        <div class="btn-row"><a class="btn btn--gold" href={localePath(lang, 'contacto')}>{c.hero.button}</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="media media-frame reveal" style="aspect-ratio:4/5">
+        <Pic photo={PHOTOS.couple} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" position="62% 50%" />
+      </div>
+      <div class="reveal">
+        <h2 set:html={c.intro.title} />
+        <hr class="rule" />
+        {c.intro.paragraphs.map((p) => <p>{p}</p>)}
+        <p style="margin-top:2rem"><a class="link-arrow" href={localePath(lang, 'sobre')}>{c.intro.link}</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="center reveal"><h2 set:html={c.discover.title} /></div>
+      <div class="cards cards--4">
+        {c.discover.cards.map((card, i) => (
+          <article class="card reveal">
+            <div class="media"><Pic photo={cardPhotos[i]} lang={lang} sizes="(min-width: 1100px) 25vw, (min-width: 640px) 50vw, 100vw" widths={[400, 640, 900]} /></div>
+            <div class="body"><h3>{card.title}</h3><p>{card.text}</p></div>
+          </article>
+        ))}
+      </div>
+      <div class="btn-row center" style="justify-content:center"><a class="btn btn--outline" href={localePath(lang, 'experiencias')}>{c.discover.button}</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split split--reverse">
+      <div class="media media-frame reveal" style="aspect-ratio:4/5">
+        <Pic photo={PHOTOS.terrace} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" />
+      </div>
+      <div class="reveal">
+        <h2 set:html={c.details.title} />
+        <hr class="rule" />
+        {c.details.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="center reveal"><h2 set:html={c.steps.title} /></div>
+      <Steps items={c.steps.items} />
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={c.cta.title} paragraphs={c.cta.paragraphs} button={c.cta.button} />
+</Base>

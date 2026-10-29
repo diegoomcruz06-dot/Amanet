@@ -1,0 +1,22 @@
+# 301 – URLs der alten Seite alma-douro.com
+/accueil                /                              301
+/accueil/               /                              301
+/a-propos               /sobre                         301
+/a-propos/              /sobre                         301
+/offres-et-programmes   /experiencias                  301
+/offres-et-programmes/  /experiencias                  301
+/nos-partenaires        /parceiros                     301
+/nos-partenaires/       /parceiros                     301
+/nous-rejoindre         /parceiros#tornar-se-parceiro  301
+/nous-rejoindre/        /parceiros#tornar-se-parceiro  301
+/contact                /contacto                      301
+/contact/               /contacto                      301
+/privacy-policy         /privacidade                   301
+/privacy-policy/        /privacidade                   301
+/terms-of-use           /aviso-legal                   301
+/terms-of-use/          /aviso-legal                   301
+/index.php              /                              301
+
+# 404 je Sprache (greift nur, wenn keine Datei existiert)
+/pt/*                   /pt/404                        404
+/en/*                   /en/404                        404

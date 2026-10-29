@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import Pic from '../../components/Pic.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { langPaths, localePath, UI, type Lang } from '../../i18n';
+import { PHOTOS } from '../../i18n/images';
+import { sobre } from '../../i18n/content/sobre';
+import { home } from '../../i18n/content/home';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const c = sobre[lang];
+---
+<Base lang={lang} pageKey="sobre" title={c.title} description={c.description}>
+  <header class="page-head container page-head--image">
+    <div>
+      <p class="eyebrow">{c.h1}</p>
+      <h1 set:html={c.love.title} />
+      <hr class="rule" />
+      {c.love.paragraphs.map((p) => <p>{p}</p>)}
+    </div>
+    <div class="media media-frame">
+      <Pic photo={PHOTOS.couple} lang={lang} sizes="(min-width: 1280px) 560px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" priority position="58% 50%" />
+    </div>
+  </header>
+
+  <section class="section section--alt" style="padding-bottom:0">
+    <div class="container narrow center reveal">
+      <h2 set:html={c.share.title} />
+      <p class="lead">{c.share.lead}</p>
+    </div>
+    <figure class="pull-quote container reveal">
+      <blockquote><p>{c.share.quote}</p></blockquote>
+      <figcaption>Tania · Alma Douro</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <div class="container split split--reverse">
+      <div class="media media-frame reveal" style="aspect-ratio:4/3">
+        <Pic photo={PHOTOS.heart} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" />
+      </div>
+      <div class="reveal">
+        {c.share.paragraphs.map((p) => <p>{p}</p>)}
+        <p class="serif-accent" style="font-family:var(--font-serif);font-size:1.9rem;line-height:1.25;margin-top:2rem">
+          {c.share.closing[0]}<br />{c.share.closing[1]}
+        </p>
+        <div class="btn-row"><a class="btn btn--gold" href={localePath(lang, 'contacto')}>{c.button}</a></div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={home[lang].cta.title} paragraphs={home[lang].cta.paragraphs} button={home[lang].cta.button} />
+</Base>

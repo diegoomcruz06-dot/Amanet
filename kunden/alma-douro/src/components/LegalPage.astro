@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import { localePath, UI, type Lang, type PageKey } from '../i18n';
+import { ADDRESS, EMAIL } from '../config';
+
+interface Props {
+  lang: Lang;
+  pageKey: PageKey;
+  page: { title: string; description: string; h1: string; updated: string; sections: { title: string; html: string[] }[] };
+}
+const { lang, pageKey, page } = Astro.props;
+const t = UI[lang];
+const address = `${ADDRESS.name}<br />${ADDRESS.owner}<br />${ADDRESS.street}<br />${ADDRESS.zip} ${ADDRESS.city}<br />${ADDRESS.country[lang]}`;
+const fill = (s: string) =>
+  s
+    .replace('{address}', address)
+    .replaceAll('{email}', `<a href="mailto:${EMAIL}">${EMAIL}</a>`)
+    .replace('{privacy}', `<a href="${localePath(lang, 'privacidade')}">${t.privacy.toLowerCase()}</a>`);
+---
+<Base lang={lang} pageKey={pageKey} title={page.title} description={page.description}>
+  <div class="container narrow section prose">
+    <h1 style="font-size:clamp(2.4rem,5vw,3.6rem)">{page.h1}</h1>
+    <p class="form-note" style="margin-bottom:3rem">{page.updated}</p>
+    {page.sections.map((s) => (
+      <>
+        <h2>{s.title}</h2>
+        {s.html.map((h) => <p set:html={fill(h)} />)}
+      </>
+    ))}
+  </div>
+</Base>

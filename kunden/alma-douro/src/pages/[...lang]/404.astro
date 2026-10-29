@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, localePath, NAV, type Lang } from '../../i18n';
+import { notFound } from '../../i18n/content/contacto';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const c = notFound[lang];
+---
+<Base lang={lang} pageKey="404" title={c.title} description={c.description} noindex>
+  <section class="section container narrow center" style="min-height:55vh">
+    <p class="eyebrow">404</p>
+    <h1 set:html={c.h1} />
+    <hr class="rule" />
+    <p class="lead">{c.text}</p>
+    <ul class="btn-row" style="list-style:none;padding:0">
+      {NAV.map((n) => <li><a class="btn btn--outline" href={localePath(lang, n.key)}>{n.label[lang]}</a></li>)}
+    </ul>
+  </section>
+</Base>

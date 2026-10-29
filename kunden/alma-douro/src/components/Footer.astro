@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo/logo-alma-douro.png';
+import { NAV, UI, localePath, type Lang, type PageKey } from '../i18n';
+import { EMAIL, whatsappUrl } from '../config';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props { lang: Lang; pageKey: PageKey }
+const { lang, pageKey } = Astro.props;
+const t = UI[lang];
+const wa = whatsappUrl(t.whatsappText);
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <Image src={logo} alt="Alma Douro" width={140} widths={[140, 280]} sizes="140px" class="footer-logo" />
+        <p class="signature">{t.signature}</p>
+      </div>
+      <nav aria-label={t.footerNav}>
+        <h2>Alma Douro</h2>
+        <ul>
+          {NAV.map((n) => <li><a href={localePath(lang, n.key)}>{n.label[lang]}</a></li>)}
+        </ul>
+      </nav>
+      <div>
+        <h2>{NAV.find((n) => n.key === 'contacto')!.label[lang]}</h2>
+        <ul>
+          <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+          {wa && <li><a href={wa} rel="noopener" target="_blank">WhatsApp</a></li>}
+        </ul>
+        <div style="margin-top:1.5rem"><LangSwitch lang={lang} pageKey={pageKey} /></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© {year} Alma Douro. {t.rights}</p>
+      <ul>
+        <li><a href={localePath(lang, 'aviso-legal')}>{t.legal}</a></li>
+        <li><a href={localePath(lang, 'privacidade')}>{t.privacy}</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
