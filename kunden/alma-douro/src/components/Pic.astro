@@ -12,13 +12,14 @@ interface Props {
   class?: string;
   position?: string;
 }
-const { photo, lang, sizes, widths = [400, 720, 960, 1200, 1440], priority = false, class: cls, position } = Astro.props;
+const { photo, lang, sizes, widths = [480, 800, 1200], priority = false, class: cls, position } = Astro.props;
 const usable = widths.filter((w) => w <= photo.src.width);
 ---
 <Picture
   src={photo.src}
   alt={photo.alt[lang]}
-  formats={['avif', 'webp']}
+  formats={['avif']}
+  fallbackFormat="webp"
   widths={usable.length ? usable : [photo.src.width]}
   sizes={sizes}
   loading={priority ? 'eager' : 'lazy'}

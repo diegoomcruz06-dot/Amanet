@@ -46,7 +46,7 @@ const cardPhotos = [PHOTOS.aerial, PHOTOS.terraces, PHOTOS.valley, PHOTOS.terrac
       <div class="cards cards--4">
         {c.discover.cards.map((card, i) => (
           <article class="card reveal">
-            <div class="media"><Pic photo={cardPhotos[i]} lang={lang} sizes="(min-width: 1100px) 25vw, (min-width: 640px) 50vw, 100vw" widths={[400, 640, 900]} /></div>
+            <div class="media"><Pic photo={cardPhotos[i]} lang={lang} sizes="(min-width: 1100px) 25vw, (min-width: 640px) 50vw, 100vw" widths={[480, 800]} /></div>
             <div class="body"><h3>{card.title}</h3><p>{card.text}</p></div>
           </article>
         ))}
