@@ -3,38 +3,72 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo/logo-alma-douro.png';
 import { NAV, UI, localePath, type Lang, type PageKey } from '../i18n';
 import { EMAIL, PHONE, SOCIAL, whatsappUrl } from '../config';
-import LangSwitch from './LangSwitch.astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
 
 interface Props { lang: Lang; pageKey: PageKey }
-const { lang, pageKey } = Astro.props;
+const { lang } = Astro.props;
 const t = UI[lang];
 const wa = whatsappUrl(t.whatsappText);
 const year = new Date().getFullYear();
+const icon = (name: string) => SOCIAL.find((s) => s.name === name);
+const instagram = icon('Instagram');
+const tiktok = icon('TikTok');
 ---
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <Image src={logo} alt="Alma Douro" width={140} widths={[140, 280]} sizes="140px" class="footer-logo" />
-        <p class="signature">{t.signature}</p>
-      </div>
-      <nav aria-label={t.footerNav}>
-        <h2>Alma Douro</h2>
-        <ul>
-          {NAV.map((n) => <li><a href={localePath(lang, n.key)}>{n.label[lang]}</a></li>)}
-        </ul>
-      </nav>
-      <div>
-        <h2>{NAV.find((n) => n.key === 'contacto')!.label[lang]}</h2>
-        <ul>
-          <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
-          <li><a href={PHONE.href}>{PHONE.display}</a></li>
-          {wa && <li><a href={wa} rel="noopener" target="_blank">WhatsApp</a></li>}
-          {SOCIAL.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.name} {s.handle}</a></li>)}
-        </ul>
-        <div style="margin-top:1.5rem"><LangSwitch lang={lang} pageKey={pageKey} /></div>
-      </div>
+    <div class="footer-brand">
+      <a href={localePath(lang, '')} aria-label={t.logoAlt}>
+        <Image src={logo} alt="" width={160} widths={[160, 320]} sizes="160px" class="footer-logo" />
+      </a>
+      <p class="signature">{t.signature}</p>
+      <hr class="rule" />
     </div>
+
+    <nav class="footer-nav" aria-label={t.footerNav}>
+      <ul>
+        {NAV.map((n) => <li><a href={localePath(lang, n.key)}>{n.label[lang]}</a></li>)}
+      </ul>
+    </nav>
+
+    <ul class="footer-contact">
+      <li>
+        <a href={`mailto:${EMAIL}`}>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3.5 6.5 8.5 6.5 8.5-6.5" /></svg>
+          <span>{EMAIL}</span>
+        </a>
+      </li>
+      <li>
+        <a href={PHONE.href}>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h3.5l1.7 4.3-2.2 1.4a11 11 0 0 0 6.3 6.3l1.4-2.2L20 15.5V19a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" /></svg>
+          <span>{PHONE.display}</span>
+        </a>
+      </li>
+      {wa && (
+        <li>
+          <a href={wa} rel="noopener" target="_blank">
+            <span class="fill-icon"><WhatsAppIcon /></span>
+            <span>WhatsApp</span>
+          </a>
+        </li>
+      )}
+      {instagram && (
+        <li>
+          <a href={instagram.url} rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.3" cy="6.7" r=".6" /></svg>
+            <span><span class="visually-hidden">Instagram </span>{instagram.handle}</span>
+          </a>
+        </li>
+      )}
+      {tiktok && (
+        <li>
+          <a href={tiktok.url} rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5" /><path d="M14 3c.4 2.8 2.2 4.6 5 5" /></svg>
+            <span><span class="visually-hidden">TikTok </span>{tiktok.handle}</span>
+          </a>
+        </li>
+      )}
+    </ul>
+
     <div class="footer-bottom">
       <p>© {year} Alma Douro. {t.rights}</p>
       <ul>

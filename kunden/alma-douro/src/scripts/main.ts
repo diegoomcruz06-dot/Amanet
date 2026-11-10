@@ -12,7 +12,14 @@ if (header && toggle) {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
   });
-  matchMedia('(min-width: 1140px)').addEventListener('change', (e) => e.matches && setOpen(false));
+  matchMedia('(min-width: 1240px)').addEventListener('change', (e) => e.matches && setOpen(false));
+}
+
+// Startseite: transparenter Header wird beim Scrollen dunkel
+if (header?.classList.contains('site-header--overlay')) {
+  const onScroll = () => header.classList.toggle('is-scrolled', scrollY > 40);
+  onScroll();
+  addEventListener('scroll', onScroll, { passive: true });
 }
 
 // Fade-in beim Scrollen
