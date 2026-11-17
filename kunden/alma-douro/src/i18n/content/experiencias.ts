@@ -9,6 +9,8 @@ const pt = {
   description:
     'Cruzeiros a partir da Régua ou de Gaia, o comboio histórico Régua–Tua e programas que combinam rio e carris. Peça informações.',
   eyebrow: 'Experiências',
+  jump: { label: 'Nesta página', cruzeiros: 'Cruzeiros', comboio: 'Comboio histórico', quintas: 'Quintas, vinhos e sabores' },
+  quintasButton: 'Ver todas as experiências nas quintas',
   h1: 'Cruzeiros <em>no Douro</em>',
   intro: 'Entre encostas cobertas de vinhas e a passagem pelas barragens, descubra o Douro de uma perspetiva diferente. Escolha uma travessia ou um dia de descoberta com refeição a bordo.',
   regua: [
@@ -46,18 +48,20 @@ const fr: typeof pt = {
   description:
     'Croisières au départ de Régua ou de Gaia, le train historique Régua–Tua et des programmes qui associent fleuve et rails. Demandez des informations.',
   eyebrow: 'Expériences',
+  jump: { label: 'Sur cette page', cruzeiros: 'Croisières', comboio: 'Train historique', quintas: 'Quintas, vins et saveurs' },
+  quintasButton: 'Voir toutes les expériences dans les quintas',
   h1: 'Croisières <em>sur le Douro</em>',
   intro: 'Entre les coteaux couverts de vignes et le passage des barrages, découvrez le Douro sous un autre angle. Choisissez une traversée ou une journée de découverte avec repas à bord.',
   regua: [
-    { title: 'De Régua à Pinhão', lead: 'Un après-midi entre le fleuve et les vignes, lors d’un trajet en bateau en aller simple.', bullets: ['Départ du quai de Régua et arrivée à Pinhão.', 'Passage du barrage de Régua.', 'Durée indicative de 2 h 15, selon l’horaire publié.', 'Retour non inclus ; il doit être organisé séparément.'], button: 'Demander des informations', interest: 'cruzeiros' },
-    { title: 'De Régua à Pinhão, aller-retour', lead: 'Profitez d’un repas à bord et d’une pause à Pinhão avant le retour par le fleuve.', bullets: ['Aller-retour en bateau, avec départ et arrivée à Régua.', 'Apéritif au vin de Porto et déjeuner à bord.', 'Passage du barrage de Régua dans les deux sens.', 'Temps libre à Pinhão. Programme indicatif de 12 h 00 à 18 h 00.'], button: 'Demander des informations', interest: 'cruzeiros' },
+    { title: 'De Régua à Pinhão', lead: 'Un après-midi entre le fleuve et les vignes, lors d’un trajet en bateau en aller simple.', bullets: ['Départ du quai de Régua et arrivée à Pinhão.', 'Passage du barrage de Régua.', 'Durée indicative de 2 h 15, selon l’horaire publié.', 'Retour non inclus ; il doit être organisé séparément.'], button: 'Plus d’informations', interest: 'cruzeiros' },
+    { title: 'De Régua à Pinhão, aller-retour', lead: 'Profitez d’un repas à bord et d’une pause à Pinhão avant le retour par le fleuve.', bullets: ['Aller-retour en bateau, avec départ et arrivée à Régua.', 'Apéritif au vin de Porto et déjeuner à bord.', 'Passage du barrage de Régua dans les deux sens.', 'Temps libre à Pinhão. Programme indicatif de 12 h 00 à 18 h 00.'], button: 'Plus d’informations', interest: 'cruzeiros' },
   ],
   gaia: {
     title: 'Croisières au départ de Gaia',
     items: [
-      { title: 'De Gaia à Régua, retour en autocar', lead: 'Suivez la transformation du paysage en remontant le Douro.', bullets: ['Petit-déjeuner et déjeuner à bord.', 'Passage des barrages de Crestuma-Lever et de Carrapatelo.', 'Temps libre à Régua et retour à Gaia en autocar.'], button: 'Demander des informations', interest: 'cruzeiros' },
-      { title: 'De Gaia à Régua en autocar, descente en bateau', lead: 'Commencez par la route et revenez au rythme du fleuve.', bullets: ['Trajet aller de Gaia à Régua en autocar.', 'Descente en bateau de Régua à Vila Nova de Gaia.', 'Déjeuner à bord.', 'Passage des barrages de Carrapatelo et de Crestuma-Lever.'], button: 'Demander des informations', interest: 'cruzeiros' },
-      { title: 'De Gaia à Pinhão, retour en autocar', lead: 'Associez la découverte du fleuve à une visite et une dégustation de vins.', bullets: ['Petit-déjeuner et déjeuner à bord.', 'Passage de trois barrages : Crestuma-Lever, Carrapatelo et Régua.', 'Transfert vers une quinta ou une cave de la région, avec visite et dégustation.', 'Retour à Gaia en autocar.'], button: 'Demander des informations', interest: 'cruzeiros' },
+      { title: 'De Gaia à Régua, retour en autocar', lead: 'Suivez la transformation du paysage en remontant le Douro.', bullets: ['Petit-déjeuner et déjeuner à bord.', 'Passage des barrages de Crestuma-Lever et de Carrapatelo.', 'Temps libre à Régua et retour à Gaia en autocar.'], button: 'Plus d’informations', interest: 'cruzeiros' },
+      { title: 'De Gaia à Régua en autocar, descente en bateau', lead: 'Commencez par la route et revenez au rythme du fleuve.', bullets: ['Trajet aller de Gaia à Régua en autocar.', 'Descente en bateau de Régua à Vila Nova de Gaia.', 'Déjeuner à bord.', 'Passage des barrages de Carrapatelo et de Crestuma-Lever.'], button: 'Plus d’informations', interest: 'cruzeiros' },
+      { title: 'De Gaia à Pinhão, retour en autocar', lead: 'Associez la découverte du fleuve à une visite et une dégustation de vins.', bullets: ['Petit-déjeuner et déjeuner à bord.', 'Passage de trois barrages : Crestuma-Lever, Carrapatelo et Régua.', 'Transfert vers une quinta ou une cave de la région, avec visite et dégustation.', 'Retour à Gaia en autocar.'], button: 'Plus d’informations', interest: 'cruzeiros' },
     ],
   },
   closing: 'Quelle sera votre prochaine découverte ? Dites-moi quand vous souhaitez voyager et où vous logerez. Je vous aide à choisir la croisière qui convient le mieux à votre séjour.',
@@ -72,8 +76,8 @@ const fr: typeof pt = {
   combo: {
     title: 'Croisière et train historique',
     items: [
-      { title: 'Départ de Régua avec déjeuner à bord', lead: 'Commencez par le fleuve et poursuivez à travers les paysages du Douro en voitures historiques.', bullets: ['Croisière Régua–Pinhão, avec apéritif et déjeuner à bord.', 'Passage du barrage de Régua.', 'Trajet à pied du quai de Pinhão à la gare, sans guide.', 'Train historique de Pinhão à Tua et retour à Régua, en repassant par Pinhão.', 'Croisière de retour non incluse : l’arrivée finale se fait à la gare de Régua.'], button: 'Demander des informations', interest: 'cruzeiros,comboio' },
-      { title: 'Départ de Gaia, retour à Porto', lead: 'Une journée qui associe croisière, train historique et retour en train régulier.', bullets: ['Croisière de Gaia à Régua, avec petit-déjeuner et déjeuner à bord.', 'Passage des barrages de Crestuma-Lever et de Carrapatelo.', 'Trajet à pied du quai à la gare de Régua.', 'Train historique Régua–Tua–Régua.', 'Retour de Régua à Porto en train régulier de la CP.'], button: 'Demander des informations', interest: 'cruzeiros,comboio' },
+      { title: 'Départ de Régua avec déjeuner à bord', lead: 'Commencez par le fleuve et poursuivez à travers les paysages du Douro en voitures historiques.', bullets: ['Croisière Régua–Pinhão, avec apéritif et déjeuner à bord.', 'Passage du barrage de Régua.', 'Trajet à pied du quai de Pinhão à la gare, sans guide.', 'Train historique de Pinhão à Tua et retour à Régua, en repassant par Pinhão.', 'Croisière de retour non incluse : l’arrivée finale se fait à la gare de Régua.'], button: 'Plus d’informations', interest: 'cruzeiros,comboio' },
+      { title: 'Départ de Gaia, retour à Porto', lead: 'Une journée qui associe croisière, train historique et retour en train régulier.', bullets: ['Croisière de Gaia à Régua, avec petit-déjeuner et déjeuner à bord.', 'Passage des barrages de Crestuma-Lever et de Carrapatelo.', 'Trajet à pied du quai à la gare de Régua.', 'Train historique Régua–Tua–Régua.', 'Retour de Régua à Porto en train régulier de la CP.'], button: 'Plus d’informations', interest: 'cruzeiros,comboio' },
     ],
   },
 };
@@ -83,6 +87,8 @@ const en: typeof pt = {
   description:
     'Cruises from Régua or Gaia, the Régua–Tua historic train and programmes that combine river and rail. Request information.',
   eyebrow: 'Experiences',
+  jump: { label: 'On this page', cruzeiros: 'Cruises', comboio: 'Historic train', quintas: 'Quintas, wine and flavours' },
+  quintasButton: 'See all quinta experiences',
   h1: 'Cruises <em>on the Douro</em>',
   intro: 'Between hillsides covered in vines and passages through the dams, discover the Douro from a different perspective. Choose a crossing or a day of discovery with a meal on board.',
   regua: [

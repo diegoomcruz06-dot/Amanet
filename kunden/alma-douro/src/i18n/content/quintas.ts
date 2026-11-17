@@ -36,7 +36,7 @@ export const quintas = {
       { title: 'Dégustations d’huile d’olive', text: ['Découvrez une autre saveur de la région. Apprenez à reconnaître les arômes et les différences entre les huiles d’olive lors d’une dégustation consacrée à ce produit.'] },
       { title: 'Balades et nature', text: ['Parcourez les chemins entre vignes et oliveraies, admirez le paysage et découvrez la nature à votre rythme. Certains domaines proposent aussi l’observation des oiseaux et des expériences agricoles ou gastronomiques de saison.'] },
     ],
-    button: 'Je veux découvrir ces expériences',
+    button: 'Je découvre ces expériences',
     note: 'Les expériences varient selon le domaine, la saison et les disponibilités. Certaines activités sont réservées aux hôtes. Le programme, les prestations incluses et les prix sont confirmés sur demande.',
   },
 

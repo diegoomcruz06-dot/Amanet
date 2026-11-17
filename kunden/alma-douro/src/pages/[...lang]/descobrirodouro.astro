@@ -11,7 +11,7 @@ const { lang } = Astro.props as { lang: Lang };
 const c = descobrir[lang];
 ---
 <Base lang={lang} pageKey="descobrirodouro" title={c.title} description={c.description}>
-  <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} photo={PHOTOS.valley} position="50% 60%" />
+  <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} photo={PHOTOS.meander} position="50% 55%" />
 
   <section class="section section--alt">
     <div class="container">
@@ -43,8 +43,8 @@ const c = descobrir[lang];
           ))}
         </div>
       </div>
-      <div class="media media-frame reveal" style="aspect-ratio:4/5">
-        <Pic photo={PHOTOS.terraces} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" />
+      <div class="media media-frame reveal" style="aspect-ratio:4/3">
+        <Pic photo={PHOTOS.quintaHouse} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" />
       </div>
     </div>
   </section>

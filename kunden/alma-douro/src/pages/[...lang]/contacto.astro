@@ -1,14 +1,16 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
-import { langPaths, localePath, type Lang } from '../../i18n';
-import { EMAIL, PHONE, SOCIAL } from '../../config';
+import { langPaths, localePath, UI, type Lang } from '../../i18n';
+import { EMAIL, PHONE, SOCIAL, whatsappUrl } from '../../config';
+import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
 import { contacto, INTERESTS } from '../../i18n/content/contacto';
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Lang };
 const c = contacto[lang];
 const f = c.form;
+const wa = whatsappUrl(UI[lang].whatsappText);
 const privacy = f.privacy.replace('{privacy}', localePath(lang, 'privacidade'));
 ---
 <Base lang={lang} pageKey="contacto" title={c.title} description={c.description}>
@@ -80,10 +82,12 @@ const privacy = f.privacy.replace('{privacy}', localePath(lang, 'privacidade'));
         <dl>
           <div><dt>{c.direct.email}</dt><dd><a class="mail" href={`mailto:${EMAIL}`}>{EMAIL}</a></dd></div>
           <div><dt>{c.direct.phone}</dt><dd><a class="mail" href={PHONE.href}>{PHONE.display}</a></dd></div>
+          {wa && <div><dt>WhatsApp</dt><dd><a class="mail" href={wa} rel="noopener" target="_blank">{PHONE.display}</a></dd></div>}
           {SOCIAL.map((s) => (
             <div><dt>{s.name}</dt><dd><a class="mail" href={s.url} rel="noopener" target="_blank">{s.handle}</a></dd></div>
           ))}
         </dl>
+        {wa && <a class="btn btn--wa" href={wa} rel="noopener" target="_blank"><WhatsAppIcon />{UI[lang].whatsapp}</a>}
       </aside>
     </div>
   </section>

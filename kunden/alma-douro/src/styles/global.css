@@ -350,6 +350,12 @@ h1 em, h2 em, h3 em, .serif-accent { font-style: italic; font-weight: 400; color
 /* Footer */
 .site-footer { background: var(--ink); color: #D9D0BF; padding-block: clamp(4rem, 9vw, 6rem) 6.5rem; font-size: .9375rem; text-align: center; border-top: 1px solid rgba(226, 194, 122, .18); }
 @media (min-width: 1240px) { .site-footer { padding-bottom: 2.5rem; } }
+/* Laptop-Breiten: Navigation mit 7 Punkten etwas enger setzen */
+@media (min-width: 1240px) and (max-width: 1439px) {
+  .nav-list { gap: 1rem; }
+  .nav-list a { letter-spacing: .1em; }
+  .nav-list li:last-child a { padding-inline: 1rem; }
+}
 .footer-brand { display: flex; flex-direction: column; align-items: center; }
 .footer-brand > a { display: inline-block; }
 .footer-logo { width: 150px; height: auto; }
@@ -379,7 +385,6 @@ h1 em, h2 em, h3 em, .serif-accent { font-style: italic; font-weight: 400; color
   border: 1px solid rgba(226, 194, 122, .5);
 }
 .wa-fab svg { width: 28px; height: 28px; }
-@media (min-width: 1240px) { .wa-fab { display: none; } }
 
 /* Scroll-Animation */
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
@@ -421,3 +426,42 @@ h1 em, h2 em, h3 em, .serif-accent { font-style: italic; font-weight: 400; color
 .signature-block p { margin: 0; }
 .signature-block .sig-name { font-family: var(--font-serif); font-size: 1.5rem; font-style: italic; color: var(--gold-deep); margin-top: .5rem; }
 .signature-block .sig-brand { font-size: .8125rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+
+/* Experiências: Sprungmenü */
+.jump-nav { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
+.jump-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; font-size: .8125rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; color: var(--ink); text-decoration: none; transition: background-color .3s var(--ease), border-color .3s var(--ease); }
+.jump-nav a:hover { background: var(--sand-2); border-color: var(--gold); }
+
+/* Kontakt: WhatsApp-Button */
+.btn--wa { margin-top: 2rem; background: var(--ink); color: var(--gold-light); border-color: var(--ink); }
+.btn--wa:hover { background: #2a231b; color: var(--gold-light); }
+
+/* Startseite: Hinweis auf Destaques */
+.promo-bar { background: var(--ink); border-top: 1px solid rgba(226, 194, 122, .25); border-bottom: 1px solid rgba(226, 194, 122, .25); }
+.promo-bar a { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .35rem 1.25rem; padding-block: 1.1rem; color: #EDE5D6; text-decoration: none; text-align: center; }
+.promo-bar-label { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; color: var(--gold-light); }
+.promo-bar-text { font-family: var(--font-serif); font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+.promo-bar-link { font-size: .8125rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; color: var(--gold-light); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.promo-bar a:hover .promo-bar-link { color: #fff; }
+
+/* Destaques: Angebote mit Plakaten */
+.promo { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (min-width: 900px) {
+  .promo { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .promo--multi { grid-template-columns: minmax(0, 1fr); }
+  .promo--multi .promo-text { max-width: 760px; margin-inline: auto; text-align: center; }
+  .promo--multi .promo-text .rule { margin-inline: auto; }
+  .promo--multi .promo-text .btn-row { justify-content: center; }
+}
+.posters { display: grid; gap: 1.25rem; justify-items: center; }
+.promo--multi .posters { align-items: start; }
+@media (min-width: 640px) { .promo--multi .posters { grid-template-columns: repeat(3, minmax(0, 340px)); justify-content: center; } }
+.promo--multi .poster-hint { grid-column: 1 / -1; }
+.poster { display: block; width: 100%; max-width: 480px; border-radius: var(--radius); overflow: hidden; box-shadow: 0 18px 40px rgba(23, 19, 15, .18); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+.poster:hover { transform: translateY(-4px); box-shadow: 0 24px 50px rgba(23, 19, 15, .24); }
+.poster img { display: block; width: 100%; height: auto; }
+.poster-hint { margin: 0; font-size: .875rem; color: var(--muted); text-align: center; }
+.photo-strip { display: grid; gap: 4px; background: var(--ink); }
+.photo-strip .media { aspect-ratio: 16 / 9; overflow: hidden; }
+.photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (min-width: 760px) { .photo-strip { grid-template-columns: repeat(3, 1fr); } .photo-strip .media { aspect-ratio: 4 / 3; } }

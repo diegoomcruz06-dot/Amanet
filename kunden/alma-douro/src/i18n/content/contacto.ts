@@ -8,6 +8,7 @@ export const INTERESTS = [
   { key: 'quintas', value: 'Visitas a quintas e provas de vinho' },
   { key: 'piqueniques', value: 'Piqueniques e experiências de vindima' },
   { key: 'paisagens', value: 'Paisagens, miradouros e aldeias' },
+  { key: 'festas', value: 'Natal e Passagem de Ano' },
   { key: 'inspiracao', value: 'Ainda procuro inspiração' },
 ] as const;
 
@@ -34,7 +35,7 @@ export const contacto = {
       people: 'Quantas pessoas vão viajar?',
       peopleHint: 'Número de adultos e crianças, com as respetivas idades.',
       interests: 'O que gostaria de descobrir?',
-      interestLabels: ['Uma estadia organizada à minha medida', 'Cruzeiros no Douro', 'Comboio histórico', 'Visitas a quintas e provas de vinho', 'Piqueniques e experiências de vindima', 'Paisagens, miradouros e aldeias', 'Ainda procuro inspiração'],
+      interestLabels: ['Uma estadia organizada à minha medida', 'Cruzeiros no Douro', 'Comboio histórico', 'Visitas a quintas e provas de vinho', 'Piqueniques e experiências de vindima', 'Paisagens, miradouros e aldeias', 'Natal e Passagem de Ano', 'Ainda procuro inspiração'],
       budget: 'Qual é o orçamento aproximado para a estadia? — opcional',
       budgetHint: 'Indique o valor global ou por pessoa, sem os bilhetes de avião.',
       message: 'A sua mensagem',
@@ -48,12 +49,12 @@ export const contacto = {
   fr: {
     title: 'Contact | Préparez votre voyage dans le Douro',
     description:
-      'Racontez-moi ce que vous aimeriez vivre dans le Douro. Formulaire de demande, e-mail, téléphone, Instagram et TikTok d’Alma Douro.',
+      'Dites-moi ce que vous aimeriez vivre dans le Douro. Formulaire de demande, e-mail, téléphone, Instagram et TikTok d’Alma Douro.',
     eyebrow: 'Contact',
     h1: 'Votre voyage <em>commence ici.</em>',
     intro: [
       'Vous imaginez déjà quelques jours dans le Douro ou vous êtes encore en quête d’inspiration ?',
-      'Racontez-moi ce que vous aimeriez vivre. Inutile d’avoir tout décidé. Nous préparerons ensemble les prochaines étapes.',
+      'Dites-moi ce que vous aimeriez vivre. Inutile d’avoir tout décidé. Nous préparerons ensemble les prochaines étapes.',
     ],
     direct: { title: 'Et si nous en parlions ?', email: 'E-mail', phone: 'Téléphone' },
     form: {
@@ -67,7 +68,7 @@ export const contacto = {
       people: 'Combien de personnes vont voyager ?',
       peopleHint: 'Nombre d’adultes et d’enfants, avec leur âge.',
       interests: 'Qu’aimeriez-vous découvrir ?',
-      interestLabels: ['Un séjour organisé sur mesure', 'Croisières sur le Douro', 'Train historique', 'Visites de quintas et dégustations de vin', 'Pique-niques et expériences de vendanges', 'Paysages, belvédères et villages', 'Je cherche encore l’inspiration'],
+      interestLabels: ['Un séjour organisé sur mesure', 'Croisières sur le Douro', 'Train historique', 'Visites de quintas et dégustations de vin', 'Pique-niques et expériences de vendanges', 'Paysages, belvédères et villages', 'Noël et Nouvel An', 'Je cherche encore l’inspiration'],
       budget: 'Quel est le budget approximatif pour le séjour ? — facultatif',
       budgetHint: 'Indiquez le montant total ou par personne, sans les billets d’avion.',
       message: 'Votre message',
@@ -100,7 +101,7 @@ export const contacto = {
       people: 'How many people will be travelling?',
       peopleHint: 'Number of adults and children, with their ages.',
       interests: 'What would you like to discover?',
-      interestLabels: ['A stay organised around me', 'Douro river cruises', 'Historic train', 'Quinta visits and wine tastings', 'Picnics and harvest experiences', 'Landscapes, viewpoints and villages', 'Still looking for inspiration'],
+      interestLabels: ['A stay organised around me', 'Douro river cruises', 'Historic train', 'Quinta visits and wine tastings', 'Picnics and harvest experiences', 'Landscapes, viewpoints and villages', 'Christmas and New Year', 'Still looking for inspiration'],
       budget: 'What is your approximate budget for the stay? — optional',
       budgetHint: 'Give the total amount or the amount per person, excluding flights.',
       message: 'Your message',

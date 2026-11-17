@@ -44,7 +44,7 @@ export const servicos = {
       title: 'Trouvez votre place dans le Douro',
       text: 'L’hébergement fait aussi partie de l’expérience. Une maison chaleureuse, un séjour dans une quinta ou un hôtel : nous chercherons l’ambiance qui correspond aux jours que vous imaginez vivre.',
       closing: 'Vous pouvez choisir une expérience ou en combiner plusieurs dans un voyage personnalisé. Les programmes, les dates et les prix sont confirmés sur demande, selon la disponibilité des partenaires.',
-      button: 'Je veux préparer mon expérience dans le Douro',
+      button: 'Je prépare mon expérience dans le Douro',
     },
   },
 

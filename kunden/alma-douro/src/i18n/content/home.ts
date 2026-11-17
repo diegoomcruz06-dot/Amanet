@@ -65,13 +65,13 @@ export const home = {
       title: 'Découvrez le Douro.',
       subtitle: 'Vivez votre propre histoire.',
       text: 'Des paysages qui invitent à ralentir, des saveurs qui éveillent les sens et des moments qui restent en mémoire. Avec Alma Douro, découvrez la région à travers un voyage pensé pour vous, à votre rythme, selon vos envies et votre budget.',
-      button: 'Je veux découvrir le Douro',
+      button: 'Je découvre le Douro',
     },
     intro: {
       title: 'Votre voyage commence par une <em>conversation</em>',
       paragraphs: [
-        'Je suis Tania, la personne derrière Alma Douro. Je connais la région depuis environ 18 ans et j’ai créé ce projet pour partager avec vous ce qui me touche dans le Douro : ses paysages, ses habitants et son authenticité.',
-        'Racontez-moi ce que vous aimeriez vivre. Une escapade à deux, quelques jours en famille ou une découverte entre amis… votre voyage commence par vos idées.',
+        'Je m’appelle Tania et je suis la seule interlocutrice d’Alma Douro. Je connais la région depuis environ 18 ans et j’ai créé ce projet pour partager avec vous ce qui me touche dans le Douro : ses paysages, ses habitants et son authenticité.',
+        'Dites-moi ce que vous aimeriez vivre. Une escapade à deux, quelques jours en famille ou une découverte entre amis… votre voyage commence par vos idées.',
         'Ensuite, je m’occupe de l’organisation de votre séjour de A à Z, en collaboration avec des partenaires locaux. Du transfert depuis l’aéroport à l’hébergement, des visites aux expériences qui rendront ces jours uniques. Seuls les billets d’avion restent à votre charge.',
       ],
       link: 'Découvrir mon histoire',

@@ -1,0 +1,77 @@
+---
+// Destaques: Aktionen und Neuheiten des Moments (aktuell Natal e Passagem de Ano).
+import { getImage } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Pic from '../../components/Pic.astro';
+import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
+import { langPaths, localePath, UI, type Lang } from '../../i18n';
+import { PHOTOS, type Photo } from '../../i18n/images';
+import { destaques } from '../../i18n/content/destaques';
+import { whatsappUrl } from '../../config';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const c = destaques[lang];
+const t = UI[lang];
+const wa = whatsappUrl(t.whatsappText);
+const form = `${localePath(lang, 'contacto')}?interesse=festas#formulario`;
+
+// Plakate je Angebot (in der Sprache, in der die Kundin sie gestaltet hat)
+const posterSets: Record<string, Photo[]> = {
+  natal: [PHOTOS.posterXmas],
+  reveillon: [PHOTOS.posterRuby, PHOTOS.posterParty, PHOTOS.posterTawny],
+  jantares: [PHOTOS.posterDinner],
+};
+// Grosse Version zum Anklicken
+const full = new Map<Photo, string>();
+for (const set of Object.values(posterSets)) {
+  for (const p of set) full.set(p, (await getImage({ src: p.src, width: Math.min(1200, p.src.width), format: 'webp', quality: 75 })).src);
+}
+const strip: Photo[] = [PHOTOS.xmasRibeira, PHOTOS.nyeRiver, PHOTOS.xmasGaia];
+---
+<Base lang={lang} pageKey="destaques" title={c.title} description={c.description}>
+  <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} photo={PHOTOS.nyeBridge} position="50% 40%">
+    <div class="btn-row"><a class="btn btn--gold" href="#natal">{c.button}</a></div>
+  </PageHead>
+
+  {c.offers.map((o, i) => {
+    const posters = posterSets[o.id] ?? [];
+    return (
+      <section class:list={['section', { 'section--alt': i % 2 === 0 }]} id={o.id}>
+        <div class:list={['container', 'promo', { 'promo--multi': posters.length > 1 }]}>
+          <div class="promo-text reveal">
+            <h2>{o.title}</h2>
+            <hr class="rule" />
+            <p class="lead">{o.text}</p>
+            <div class="btn-row"><a class="btn btn--gold" href={form}>{o.button}</a></div>
+          </div>
+          <div class="posters reveal">
+            {posters.map((p) => (
+              <a class="poster" href={full.get(p)} target="_blank" rel="noopener">
+                <Pic photo={p} lang={lang} sizes={posters.length > 1 ? '(min-width: 1100px) 360px, (min-width: 640px) 45vw, 90vw' : '(min-width: 1100px) 480px, 90vw'} widths={[400, 720]} />
+              </a>
+            ))}
+            <p class="poster-hint">{c.posterHint}</p>
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="photo-strip" aria-hidden="true">
+    {strip.map((p) => <div class="media"><Pic photo={p} lang={lang} sizes="(min-width: 760px) 34vw, 100vw" widths={[480, 800]} /></div>)}
+  </section>
+
+  <section class="cta-band dark section">
+    <div class="container narrow center reveal">
+      <h2 set:html={c.cta.title} />
+      <hr class="rule" />
+      <p class="lead">{c.cta.text}</p>
+      <div class="btn-row">
+        <a class="btn btn--gold" href={form}>{c.cta.button}</a>
+        {wa && <a class="btn btn--outline" href={wa} rel="noopener" target="_blank"><WhatsAppIcon />{t.whatsapp}</a>}
+      </div>
+    </div>
+  </section>
+</Base>

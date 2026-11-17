@@ -3,20 +3,28 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import Pic from '../../components/Pic.astro';
 import OfferCard from '../../components/OfferCard.astro';
-import { langPaths, type Lang } from '../../i18n';
+import { langPaths, localePath, type Lang } from '../../i18n';
 import { PHOTOS } from '../../i18n/images';
 import { experiencias } from '../../i18n/content/experiencias';
+import { quintas } from '../../i18n/content/quintas';
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Lang };
 const c = experiencias[lang];
+const q = quintas[lang];
 ---
 <Base lang={lang} pageKey="experiencias" title={c.title} description={c.description}>
   <div id="cruzeiros">
-    <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} photo={PHOTOS.aerial} />
+    <PageHead lang={lang} eyebrow={c.eyebrow} title={c.h1} intro={c.intro} photo={PHOTOS.cruiseShip}>
+      <nav class="jump-nav" aria-label={c.jump.label}>
+        <a href="#cruzeiros-ofertas">{c.jump.cruzeiros}</a>
+        <a href="#comboio">{c.jump.comboio}</a>
+        <a href="#quintas">{c.jump.quintas}</a>
+      </nav>
+    </PageHead>
   </div>
 
-  <section class="section section--alt">
+  <section class="section section--alt" id="cruzeiros-ofertas">
     <div class="container">
       <div class="offers">
         {c.regua.map((item) => <OfferCard lang={lang} item={item} heading="h2" />)}
@@ -40,7 +48,7 @@ const c = experiencias[lang];
         <p>{c.comboio.line.text}</p>
       </div>
       <div class="media media-frame reveal" style="aspect-ratio:4/5">
-        <Pic photo={PHOTOS.valley} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" position="50% 60%" />
+        <Pic photo={PHOTOS.steam} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" position="45% 50%" />
       </div>
     </div>
     <div class="container">
@@ -55,6 +63,22 @@ const c = experiencias[lang];
       <h2 class="group-title reveal" style="margin-top:0">{c.combo.title}</h2>
       <div class="offers">
         {c.combo.items.map((item) => <OfferCard lang={lang} item={item} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quintas">
+    <div class="container split split--reverse">
+      <div class="media media-frame reveal" style="aspect-ratio:4/5">
+        <Pic photo={PHOTOS.barrels} lang={lang} sizes="(min-width: 1280px) 580px, (min-width: 900px) 45vw, calc(100vw - 2.5rem)" position="50% 50%" />
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">{q.eyebrow}</p>
+        <h2 set:html={q.h1} />
+        <hr class="rule" />
+        <p class="lead">{q.intro}</p>
+        <ul class="check-list" style="margin-top:1.5rem">{q.items.map((it) => <li>{it.title}</li>)}</ul>
+        <div class="btn-row"><a class="btn btn--gold" href={localePath(lang, 'quintas')}>{c.quintasButton}</a></div>
       </div>
     </div>
   </section>

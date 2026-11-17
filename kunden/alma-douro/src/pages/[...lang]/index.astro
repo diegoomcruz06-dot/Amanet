@@ -7,11 +7,13 @@ import CtaBand from '../../components/CtaBand.astro';
 import { langPaths, localePath, type Lang } from '../../i18n';
 import { PHOTOS, type Photo } from '../../i18n/images';
 import { home } from '../../i18n/content/home';
+import { destaques } from '../../i18n/content/destaques';
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Lang };
 const c = home[lang];
-const cardPhotos: Photo[] = [PHOTOS.rabelo, PHOTOS.cellar, PHOTOS.train, PHOTOS.stay];
+const d = destaques[lang].teaser;
+const cardPhotos: Photo[] = [PHOTOS.riverbank, PHOTOS.barrels, PHOTOS.train, PHOTOS.breakfast];
 ---
 <Base lang={lang} pageKey="" title={c.title} description={c.description}>
   <section class="hero">
@@ -25,6 +27,14 @@ const cardPhotos: Photo[] = [PHOTOS.rabelo, PHOTOS.cellar, PHOTOS.train, PHOTOS.
       </div>
     </div>
   </section>
+
+  <aside class="promo-bar">
+    <a class="container" href={localePath(lang, 'destaques')}>
+      <span class="promo-bar-label">{d.label}</span>
+      <span class="promo-bar-text">{d.text}</span>
+      <span class="promo-bar-link">{d.link} →</span>
+    </a>
+  </aside>
 
   <section class="section">
     <div class="container split">
