@@ -68,7 +68,7 @@ export const contacto = {
       people: 'Combien de personnes vont voyager ?',
       peopleHint: 'Nombre d’adultes et d’enfants, avec leur âge.',
       interests: 'Qu’aimeriez-vous découvrir ?',
-      interestLabels: ['Un séjour organisé sur mesure', 'Croisières sur le Douro', 'Train historique', 'Visites de quintas et dégustations de vin', 'Pique-niques et expériences de vendanges', 'Paysages, belvédères et villages', 'Noël et Nouvel An', 'Je cherche encore l’inspiration'],
+      interestLabels: ['Un séjour organisé sur mesure', 'Croisières sur le Douro', 'Train historique', 'Visites de domaines viticoles et dégustations de vin', 'Pique-niques et expériences de vendanges', 'Paysages, belvédères et villages', 'Noël et Nouvel An', 'Je cherche encore l’inspiration'],
       budget: 'Quel est le budget approximatif pour le séjour ? — facultatif',
       budgetHint: 'Indiquez le montant total ou par personne, sans les billets d’avion.',
       message: 'Votre message',

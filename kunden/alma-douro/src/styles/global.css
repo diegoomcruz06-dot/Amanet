@@ -377,6 +377,9 @@ h1 em, h2 em, h3 em, .serif-accent { font-style: italic; font-weight: 400; color
 .footer-bottom ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1.75rem; }
 .footer-bottom a { display: inline-block; padding: .35rem 0; }
 @media (min-width: 760px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
+.footer-credit { margin: 1rem 0 0; text-align: center; font-size: .8125rem; color: #A79D8B; }
+.footer-credit a { display: inline-block; padding: .35rem 0; color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.footer-credit a:hover { color: var(--gold-light); }
 
 .wa-fab {
   position: fixed; right: 1rem; bottom: 1rem; z-index: 40;

@@ -21,17 +21,17 @@ export const quintas = {
   },
 
   fr: {
-    title: 'Quintas, vins et saveurs du Douro | Alma Douro',
+    title: 'Domaines viticoles, vins et saveurs du Douro | Alma Douro',
     description:
-      'Visites de quintas et de caves, dégustations de vins du Douro et de Porto, pique-niques, vendanges, huile d’olive et balades dans les vignes.',
-    eyebrow: 'Expériences – Quintas',
+      'Visites de domaines viticoles et de caves, dégustations de vins du Douro et de Porto, pique-niques, vendanges, huile d’olive et balades dans les vignes.',
+    eyebrow: 'Expériences – Domaines viticoles',
     h1: 'Entre vignes, saveurs <em>et traditions</em>',
     intro: 'Dans le Douro, chaque découverte nous rapproche de la terre et de celles et ceux qui la travaillent. Entrez dans une cave, découvrez les arômes d’un vin ou prenez le temps d’un pique-nique avec vue sur les vignes. Trouvez l’expérience qui vous ressemble le plus.',
     items: [
-      { title: 'Visites de quintas et de caves', text: ['Découvrez le chemin du raisin jusqu’au verre. Explorez les espaces de vinification et de vieillissement et découvrez les histoires, les méthodes et les traditions qui font l’identité des vins du Douro.'] },
+      { title: 'Visites de domaines viticoles et de caves', text: ['Découvrez le chemin du raisin jusqu’au verre. Explorez les espaces de vinification et de vieillissement et découvrez les histoires, les méthodes et les traditions qui font l’identité des vins du Douro.'] },
       { title: 'Dégustations de vins du Douro et de Porto', text: ['Une première découverte ou une dégustation plus approfondie : il existe différentes façons de connaître les vins de la région.', 'Explorez les vins Douro DOC, découvrez les différences entre les Portos Tawny, Ruby, LBV et Vintage ou choisissez une dégustation de vins élevés en fût. Certaines options sont accompagnées de fromages, de charcuteries ou de chocolats.'] },
       { title: 'Pique-niques dans les vignes', text: ['Une pause pour savourer la région sans se presser. Profitez de produits régionaux et de vin dans un cadre choisi pour l’occasion. Entre vignes et oliviers, sur une terrasse avec vue ou dans un espace chaleureux du domaine.'] },
-      { title: 'Vendanges et foulage du raisin', text: ['À l’époque des vendanges, certaines quintas ouvrent leurs portes à celles et ceux qui souhaitent participer à cette tradition. Selon le programme, vous pourrez prendre part à la cueillette du raisin, entrer dans un lagar pour le foulage aux pieds et compléter l’expérience par une visite, une dégustation ou un repas.'] },
+      { title: 'Vendanges et foulage du raisin', text: ['À l’époque des vendanges, certains domaines viticoles ouvrent leurs portes à celles et ceux qui souhaitent participer à cette tradition. Selon le programme, vous pourrez prendre part à la cueillette du raisin, entrer dans un lagar pour le foulage aux pieds et compléter l’expérience par une visite, une dégustation ou un repas.'] },
       { title: 'Découvrir l’art de créer un vin', text: ['Découvrez cépages et arômes et explorez l’art d’assembler les vins lors d’un atelier d’assemblage.', 'Une occasion de mieux comprendre les choix de celles et ceux qui créent un vin et d’essayer une nouvelle façon de l’apprécier.'] },
       { title: 'Dégustations d’huile d’olive', text: ['Découvrez une autre saveur de la région. Apprenez à reconnaître les arômes et les différences entre les huiles d’olive lors d’une dégustation consacrée à ce produit.'] },
       { title: 'Balades et nature', text: ['Parcourez les chemins entre vignes et oliveraies, admirez le paysage et découvrez la nature à votre rythme. Certains domaines proposent aussi l’observation des oiseaux et des expériences agricoles ou gastronomiques de saison.'] },

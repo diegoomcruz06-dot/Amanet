@@ -80,7 +80,7 @@ export const home = {
       title: 'Qu’aimeriez-vous <em>découvrir ?</em>',
       cards: [
         { title: 'Le Douro depuis le fleuve', text: 'Découvrez la région sous un autre angle, avec des croisières adaptées à différents moments et à différentes envies.' },
-        { title: 'Domaines, vins et saveurs', text: 'Découvrez le Douro à travers la visite de quintas, des dégustations de vin et des suggestions gastronomiques.' },
+        { title: 'Domaines, vins et saveurs', text: 'Découvrez le Douro à travers la visite de domaines viticoles, des dégustations de vin et des suggestions gastronomiques.' },
         { title: 'Un voyage en train historique', text: 'Laissez-vous séduire par une expérience qui réunit les paysages et le charme d’autrefois.' },
         { title: 'Un séjour pour en profiter', text: 'Trouvez un hébergement selon vos préférences et complétez votre séjour par des découvertes dans la région.' },
       ],

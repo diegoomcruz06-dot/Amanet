@@ -48,8 +48,8 @@ const fr: typeof pt = {
   description:
     'Croisières au départ de Régua ou de Gaia, le train historique Régua–Tua et des programmes qui associent fleuve et rails. Demandez des informations.',
   eyebrow: 'Expériences',
-  jump: { label: 'Sur cette page', cruzeiros: 'Croisières', comboio: 'Train historique', quintas: 'Quintas, vins et saveurs' },
-  quintasButton: 'Voir toutes les expériences dans les quintas',
+  jump: { label: 'Sur cette page', cruzeiros: 'Croisières', comboio: 'Train historique', quintas: 'Domaines viticoles, vins et saveurs' },
+  quintasButton: 'Voir toutes les expériences dans les domaines viticoles',
   h1: 'Croisières <em>sur le Douro</em>',
   intro: 'Entre les coteaux couverts de vignes et le passage des barrages, découvrez le Douro sous un autre angle. Choisissez une traversée ou une journée de découverte avec repas à bord.',
   regua: [
@@ -61,7 +61,7 @@ const fr: typeof pt = {
     items: [
       { title: 'De Gaia à Régua, retour en autocar', lead: 'Suivez la transformation du paysage en remontant le Douro.', bullets: ['Petit-déjeuner et déjeuner à bord.', 'Passage des barrages de Crestuma-Lever et de Carrapatelo.', 'Temps libre à Régua et retour à Gaia en autocar.'], button: 'Plus d’informations', interest: 'cruzeiros' },
       { title: 'De Gaia à Régua en autocar, descente en bateau', lead: 'Commencez par la route et revenez au rythme du fleuve.', bullets: ['Trajet aller de Gaia à Régua en autocar.', 'Descente en bateau de Régua à Vila Nova de Gaia.', 'Déjeuner à bord.', 'Passage des barrages de Carrapatelo et de Crestuma-Lever.'], button: 'Plus d’informations', interest: 'cruzeiros' },
-      { title: 'De Gaia à Pinhão, retour en autocar', lead: 'Associez la découverte du fleuve à une visite et une dégustation de vins.', bullets: ['Petit-déjeuner et déjeuner à bord.', 'Passage de trois barrages : Crestuma-Lever, Carrapatelo et Régua.', 'Transfert vers une quinta ou une cave de la région, avec visite et dégustation.', 'Retour à Gaia en autocar.'], button: 'Plus d’informations', interest: 'cruzeiros' },
+      { title: 'De Gaia à Pinhão, retour en autocar', lead: 'Associez la découverte du fleuve à une visite et une dégustation de vins.', bullets: ['Petit-déjeuner et déjeuner à bord.', 'Passage de trois barrages : Crestuma-Lever, Carrapatelo et Régua.', 'Transfert vers un domaine viticole ou une cave de la région, avec visite et dégustation.', 'Retour à Gaia en autocar.'], button: 'Plus d’informations', interest: 'cruzeiros' },
     ],
   },
   closing: 'Quelle sera votre prochaine découverte ? Dites-moi quand vous souhaitez voyager et où vous logerez. Je vous aide à choisir la croisière qui convient le mieux à votre séjour.',

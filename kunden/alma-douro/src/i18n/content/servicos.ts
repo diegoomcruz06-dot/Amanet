@@ -27,22 +27,22 @@ export const servicos = {
   fr: {
     title: 'Services | Vivre le Douro à votre façon',
     description:
-      'Croisières, train historique, quintas et saveurs, paysages et villages, hébergement : des expériences dans le Douro réunies dans un voyage sur mesure.',
+      'Croisières, train historique, domaines viticoles et saveurs, paysages et villages, hébergement : des expériences dans le Douro réunies dans un voyage sur mesure.',
     eyebrow: 'Services',
     h1: 'Il existe de nombreuses façons de vivre le Douro. <em>Quelle sera la vôtre ?</em>',
     intro: [
-      'Depuis le fleuve, à la table d’une quinta ou par la fenêtre d’un train historique, chaque découverte révèle un peu de cette région.',
+      'Depuis le fleuve, à la table d’un domaine viticole ou par la fenêtre d’un train historique, chaque découverte révèle un peu de cette région.',
       'Explorez ce qui vous inspire le plus. Ensuite, nous trouverons les expériences qui vous ressemblent.',
     ],
     blocks: [
       { title: 'Au rythme du fleuve', text: 'Laissez votre regard suivre les coteaux et découvrez le Douro depuis l’eau. Entre balades en bateau et croisières avec repas à bord, il existe différentes façons de profiter du fleuve, selon le temps dont vous disposez et l’expérience que vous recherchez.', button: 'Découvrir les croisières' },
       { title: 'Sur les rails du train historique', text: 'Voyagez au rythme d’autrefois et admirez le paysage par la fenêtre. Une expérience pour celles et ceux qui aiment allier histoire et découverte, intégrée à un programme selon les dates de circulation.', button: 'En savoir plus sur le train historique' },
-      { title: 'Dans les quintas et à table', text: 'Découvrez les histoires qui se cachent derrière les vins, visitez des quintas et prenez le temps de savourer la région. Des dégustations de vin aux suggestions gastronomiques, découvrez le Douro à travers celles et ceux qui le travaillent et le connaissent.', button: 'Explorer quintas et saveurs' },
+      { title: 'Dans les domaines viticoles et à table', text: 'Découvrez les histoires qui se cachent derrière les vins, visitez des domaines viticoles et prenez le temps de savourer la région. Des dégustations de vin aux suggestions gastronomiques, découvrez le Douro à travers celles et ceux qui le travaillent et le connaissent.', button: 'Explorer domaines et saveurs' },
       { title: 'Entre paysages et villages', text: 'Arrêtez-vous à un belvédère, parcourez un village ou profitez d’une plage fluviale. Autant de suggestions pour compléter votre séjour, choisies selon la saison, vos centres d’intérêt et votre rythme.', button: '' },
     ],
     stay: {
       title: 'Trouvez votre place dans le Douro',
-      text: 'L’hébergement fait aussi partie de l’expérience. Une maison chaleureuse, un séjour dans une quinta ou un hôtel : nous chercherons l’ambiance qui correspond aux jours que vous imaginez vivre.',
+      text: 'L’hébergement fait aussi partie de l’expérience. Une maison chaleureuse, un séjour dans un domaine viticole ou un hôtel : nous chercherons l’ambiance qui correspond aux jours que vous imaginez vivre.',
       closing: 'Vous pouvez choisir une expérience ou en combiner plusieurs dans un voyage personnalisé. Les programmes, les dates et les prix sont confirmés sur demande, selon la disponibilité des partenaires.',
       button: 'Je prépare mon expérience dans le Douro',
     },

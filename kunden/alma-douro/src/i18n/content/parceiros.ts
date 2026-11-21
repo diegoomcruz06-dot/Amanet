@@ -25,7 +25,7 @@ export const parceiros = {
   fr: {
     title: 'Partenariats | Alma Douro',
     description:
-      'Vous avez un hébergement, une quinta, un restaurant ou une expérience dans le Douro ? Alma Douro valorise les projets locaux et les relations de confiance.',
+      'Vous avez un hébergement, un domaine viticole, un restaurant ou une expérience dans le Douro ? Alma Douro valorise les projets locaux et les relations de confiance.',
     eyebrow: 'Partenariats',
     h1: 'Les belles expériences commencent par <em>de belles relations.</em>',
     intro: 'Derrière un séjour chaleureux, une visite qui nous marque ou un repas dont on se souvient, il y a des personnes qui prennent soin de ce qu’elles font. Chez Alma Douro, j’accorde de la valeur à ces personnes et aux relations que nous construisons.',
@@ -36,7 +36,7 @@ export const parceiros = {
     join: {
       title: 'Vous avez un projet que vous aimeriez <em>partager ?</em>',
       text: [
-        'Si vous avez un hébergement, une quinta, un restaurant, une expérience ou un service qui pourrait enrichir le voyage de mes clients, je serai ravie de découvrir votre travail.',
+        'Si vous avez un hébergement, un domaine viticole, un restaurant, une expérience ou un service qui pourrait enrichir le voyage de mes clients, je serai ravie de découvrir votre travail.',
         'Je suis également ouverte à des projets en Suisse qui se reconnaissent dans ce pont entre les deux pays. Parlons de ce qui nous rapproche et voyons comment collaborer, avec des conditions claires et dans le respect du travail de chacun.',
       ],
       button: 'Proposer un partenariat',

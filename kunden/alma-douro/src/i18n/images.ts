@@ -195,7 +195,7 @@ export const PHOTOS = {
   quintaHouse: {
     src: quintaHouse,
     alt: {
-      fr: 'Une quinta aux murs blancs et toits de tuiles dominant la vallée du Douro',
+      fr: 'Un domaine viticole aux murs blancs et toits de tuiles dominant la vallée du Douro',
       pt: 'Uma quinta de paredes brancas e telhados de telha sobre o vale do Douro',
       en: 'A white-walled quinta with tiled roofs overlooking the Douro Valley',
     },
