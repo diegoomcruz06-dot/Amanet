@@ -12,7 +12,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppIcon from '../components/WhatsAppIcon.astro';
 import { LANGS, DEFAULT_LANG, HTML_LANG, OG_LOCALE, UI, localePath, navLabel, type Lang, type PageKey } from '../i18n';
-import { SITE_URL, SITE_NAME, EMAIL, PHONE, SOCIAL, whatsappUrl } from '../config';
+import { SITE_URL, SITE_NAME, EMAIL, PHONE, SOCIAL, ADDRESS, whatsappUrl } from '../config';
 
 interface Props {
   lang: Lang;
@@ -40,7 +40,8 @@ const org = {
   email: EMAIL,
   telephone: PHONE.display.replace(/ /g, ''),
   sameAs: SOCIAL.map((s) => s.url),
-  founder: { '@type': 'Person', name: 'Tânia Afonso' },
+  founder: { '@type': 'Person', name: ADDRESS.owner },
+  address: { '@type': 'PostalAddress', streetAddress: ADDRESS.street, postalCode: ADDRESS.zip, addressLocality: ADDRESS.city, addressCountry: 'CH' },
   availableLanguage: ['fr', 'pt', 'en'],
   areaServed: { '@type': 'Place', name: 'Douro, Portugal' },
   slogan: t.signature,

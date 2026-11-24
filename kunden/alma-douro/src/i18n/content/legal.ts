@@ -1,4 +1,4 @@
-// Impressum und Datenschutzerklärung (nDSG / DSGVO). ENTWURF – vor dem Livegang von Tania prüfen lassen (siehe OPEN_QUESTIONS.md).
+// Impressum und Datenschutzerklärung (nDSG / DSGVO). Von der Kundin freigegeben (11.2026). Bei Änderungen «updated» nachführen.
 // Platzhalter: {address} = Adressblock, {email} = E-Mail-Link, {privacy} = Link Datenschutz.
 type Section = { title: string; html: string[] };
 type LegalPage = { title: string; description: string; h1: string; updated: string; sections: Section[] };
@@ -8,7 +8,7 @@ export const avisoLegal: Record<'fr' | 'pt' | 'en', LegalPage> = {
     title: 'Aviso legal | Alma Douro',
     description: 'Aviso legal do site alma-douro.com: responsável, contacto, direitos de autor e créditos fotográficos.',
     h1: 'Aviso legal',
-    updated: 'Última atualização: outubro de 2026',
+    updated: 'Última atualização: novembro de 2026',
     sections: [
       { title: 'Responsável pelo site', html: ['{address}', 'E-mail: {email}<br />Telefone: {phone}'] },
       { title: 'Direitos de autor', html: ['Os textos, fotografias e o logótipo deste site pertencem à Alma Douro, salvo indicação em contrário. Qualquer reprodução requer autorização prévia por escrito.'] },
@@ -20,7 +20,7 @@ export const avisoLegal: Record<'fr' | 'pt' | 'en', LegalPage> = {
     title: 'Mentions légales | Alma Douro',
     description: 'Mentions légales du site alma-douro.com : responsable, contact, droits d’auteur et crédits photos.',
     h1: 'Mentions légales',
-    updated: 'Dernière mise à jour : octobre 2026',
+    updated: 'Dernière mise à jour : novembre 2026',
     sections: [
       { title: 'Responsable du site', html: ['{address}', 'E-mail : {email}<br />Téléphone : {phone}'] },
       { title: 'Droits d’auteur', html: ['Les textes, photographies et le logo de ce site appartiennent à Alma Douro, sauf mention contraire. Toute reproduction nécessite une autorisation écrite préalable.'] },
@@ -32,7 +32,7 @@ export const avisoLegal: Record<'fr' | 'pt' | 'en', LegalPage> = {
     title: 'Legal notice | Alma Douro',
     description: 'Legal notice for alma-douro.com: website owner, contact details, copyright and photo credits.',
     h1: 'Legal notice',
-    updated: 'Last updated: October 2026',
+    updated: 'Last updated: November 2026',
     sections: [
       { title: 'Responsible for this website', html: ['{address}', 'Email: {email}<br />Phone: {phone}'] },
       { title: 'Copyright', html: ['The texts, photographs and logo on this website belong to Alma Douro unless stated otherwise. Any reproduction requires prior written permission.'] },
@@ -47,7 +47,7 @@ export const privacidade: Record<'fr' | 'pt' | 'en', LegalPage> = {
     title: 'Política de privacidade | Alma Douro',
     description: 'Como a Alma Douro trata os seus dados: alojamento na Netlify, formulário de contacto, sem cookies e sem tracking. Segundo a nLPD e o RGPD.',
     h1: 'Política de privacidade',
-    updated: 'Última atualização: outubro de 2026',
+    updated: 'Última atualização: novembro de 2026',
     sections: [
       { title: 'Em resumo', html: ['Este site não utiliza cookies, ferramentas de análise nem publicidade. Os seus dados só são tratados quando nos escreve, e apenas para responder ao seu pedido.', 'Esta política aplica-se segundo a Lei Federal suíça sobre a Proteção de Dados (nLPD) e, para visitantes da União Europeia, o Regulamento Geral sobre a Proteção de Dados (RGPD).'] },
       { title: 'Responsável pelo tratamento', html: ['{address}', 'E-mail: {email}'] },
@@ -63,7 +63,7 @@ export const privacidade: Record<'fr' | 'pt' | 'en', LegalPage> = {
     title: 'Protection des données | Alma Douro',
     description: 'Comment Alma Douro traite vos données : hébergement chez Netlify, formulaire de contact, sans cookies ni suivi. Selon la nLPD et le RGPD.',
     h1: 'Protection des données',
-    updated: 'Dernière mise à jour : octobre 2026',
+    updated: 'Dernière mise à jour : novembre 2026',
     sections: [
       { title: 'En bref', html: ['Ce site n’utilise ni cookies, ni outils d’analyse, ni publicité. Vos données ne sont traitées que lorsque vous nous écrivez, et uniquement pour répondre à votre demande.', 'Cette politique s’applique selon la loi fédérale suisse sur la protection des données (nLPD) et, pour les visiteurs de l’Union européenne, le règlement général sur la protection des données (RGPD).'] },
       { title: 'Responsable du traitement', html: ['{address}', 'E-mail : {email}'] },
@@ -79,7 +79,7 @@ export const privacidade: Record<'fr' | 'pt' | 'en', LegalPage> = {
     title: 'Privacy policy | Alma Douro',
     description: 'How Alma Douro handles your data: hosting on Netlify, contact form, no cookies and no tracking. In line with the Swiss FADP and the GDPR.',
     h1: 'Privacy policy',
-    updated: 'Last updated: October 2026',
+    updated: 'Last updated: November 2026',
     sections: [
       { title: 'In short', html: ['This website uses no cookies, no analytics and no advertising. Your data is only processed when you write to us, and only to respond to your enquiry.', 'This policy applies under the Swiss Federal Act on Data Protection (FADP) and, for visitors from the European Union, the General Data Protection Regulation (GDPR).'] },
       { title: 'Controller', html: ['{address}', 'Email: {email}'] },

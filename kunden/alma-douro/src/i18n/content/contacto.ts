@@ -1,5 +1,5 @@
 // «Contacto». PT = definitiver Text der Kundin (06-contacto.md). FR/EN = Übersetzungen.
-// Danke- und 404-Seite: Entwurf Amanet (siehe DRAFTS_REVIEW.md).
+// Danke- und 404-Seite: Texte Amanet, freigegeben (siehe DRAFTS_REVIEW.md).
 // Die Werte der Checkboxen (value) bleiben in allen Sprachen auf Portugiesisch, damit Tania die Anfragen einheitlich sieht.
 export const INTERESTS = [
   { key: 'estadia', value: 'Uma estadia organizada à minha medida' },

@@ -12,7 +12,7 @@ export const SOCIAL = [
   { name: 'TikTok', handle: '@almadouro26', url: 'https://www.tiktok.com/@almadouro26' },
 ];
 
-// TODO: von Tania bestätigen (Adresse laut alter Website)
+// Geschäftsadresse (Impressum, Datenschutz, strukturierte Daten), freigegeben 11.2026
 export const ADDRESS = {
   name: 'Alma Douro',
   owner: 'Tânia Afonso',
