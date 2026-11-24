@@ -5,7 +5,7 @@ Stand: 24.11.2026 (vor dem Livegang). Nicht geraten, bitte mit Tania klären.
 ## Erledigt
 - WhatsApp-Nummer: +41 76 804 89 76 (gleich wie Telefon, bestätigt) → `src/config.ts`
 - Social Media: Instagram @alma.douro, TikTok @almadouro26 → Kontaktseite, Footer, strukturierte Daten
-- Rechtstexte (Impressum, Datenschutz) und Amanet-Texte freigegeben (11.2026); Netlify und Amanet stehen in der Datenschutzerklärung, Vermerk «Designed & Hosted by Amanet Digital» im Footer
+- Mentions légales + Conditions générales (eine Seite) und Politique de confidentialité: freigegebener Text vom 22.11.2026 übernommen (FR/PT, EN übersetzt), Lücken gefüllt. Netlify und Amanet nur in der Datenschutzerklärung (Punkt 4), Vermerk «Designed & Hosted by Amanet Digital» im Footer. Bildnachweise Wikimedia bleiben in den Mentions légales (Lizenzpflicht).
 - Adresse «Alma Douro, Tânia Afonso, A Vesin 22, 1483 Vesin, Suisse» bestätigt → Impressum, Datenschutz, strukturierte Daten
 - FR: «quinta» → «domaine viticole» (Eigennamen bleiben)
 - Seitentexte Serviços, Experiências (Cruzeiros & Comboio), Quintas, Outras descobertas, Parcerias, Contacto: definitive PT-Texte von Tania übernommen

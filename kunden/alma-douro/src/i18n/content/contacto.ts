@@ -73,7 +73,7 @@ export const contacto = {
       budgetHint: 'Indiquez le montant total ou par personne, sans les billets d’avion.',
       message: 'Votre message',
       messageHint: 'Partagez vos préférences, racontez-moi ce que vous recherchez ou posez vos questions.',
-      privacy: 'Les données envoyées seront utilisées pour répondre à votre demande et préparer la proposition demandée. Consultez la <a href="{privacy}">politique de protection des données</a> pour en savoir plus.',
+      privacy: 'Les données envoyées seront utilisées pour répondre à votre demande et préparer la proposition demandée. Consultez la <a href="{privacy}">politique de confidentialité</a> pour en savoir plus.',
       submit: 'Envoyer ma demande',
       honeypot: 'Ne remplissez pas ce champ',
     },

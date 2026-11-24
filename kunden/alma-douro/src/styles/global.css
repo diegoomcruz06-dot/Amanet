@@ -310,6 +310,9 @@ h1 em, h2 em, h3 em, .serif-accent { font-style: italic; font-weight: 400; color
 
 .prose h2 { margin-top: 2.5rem; font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
 .prose h2:first-child { margin-top: 0; }
+.prose h3 { margin-top: 1.75rem; margin-bottom: .5rem; font-size: clamp(1.2rem, 1.8vw, 1.4rem); }
+.prose ul { margin: 0 0 1.25rem; padding-left: 1.25rem; list-style: disc; }
+.prose li { margin-bottom: .4rem; }
 .prose a { color: var(--gold-deep); }
 
 /* Formular */
